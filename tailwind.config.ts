@@ -31,8 +31,8 @@ export default {
         b3: ["20px", { lineHeight: "30px", fontWeight: "400" }],
         b4: ["18px", { lineHeight: "28px", fontWeight: "400" }],
         b5: ["16px", { lineHeight: "24px", fontWeight: "400" }],
-        b6: ["14px", { lineHeight: "24px", fontWeight: "400" }],
-        b7: ["12px", { lineHeight: "24px", fontWeight: "400" }],
+        b6: ["14px", { lineHeight: "20px", fontWeight: "400" }],
+        b7: ["12px", { lineHeight: "18px", fontWeight: "400" }],
       },
       colors: {
         background: "var(--background)",
@@ -43,6 +43,8 @@ export default {
         secondary: {
           default: "#3F3844",
           300: "#B0B0B0",
+          400: "#E4E7EC",
+          500: "#98A2B3",
         },
         outline: {
           blue: "#DEEDFE",

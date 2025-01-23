@@ -2,6 +2,7 @@
 import React from "react";
 import { AdverTisePaper } from "./childrens/advertise";
 import { ProductList } from "./childrens/productList";
+import { HomeComponentProps } from "./home.interface";
 
 const HomeComponent: React.FC<HomeComponentProps> = (props) => {
   const {} = props;
