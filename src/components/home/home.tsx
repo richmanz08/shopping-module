@@ -1,10 +1,14 @@
+"use client";
 import React from "react";
+import { AdverTisePaper } from "./childrens/advertise";
+import { ProductList } from "./childrens/productList";
 
 const HomeComponent: React.FC<HomeComponentProps> = (props) => {
   const {} = props;
   return (
-    <div className="bg-red-400 flex h-6 w- text-fuchsia-600">
-      Home hellowolrd
+    <div className="flex flex-col w-full max-w-7xl justify-center px-8">
+      <AdverTisePaper />
+      <ProductList />
     </div>
   );
 };
