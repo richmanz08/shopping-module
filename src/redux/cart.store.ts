@@ -1,31 +1,31 @@
-import { IProductData } from "@/services/product/product-list";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IProductData } from '@/services/product/product-list'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface ICartData {
-  product: IProductData;
-  amount: number;
+  product: IProductData
+  amount: number
 }
 
 interface CartsState {
-  carts: ICartData[];
+  carts: ICartData[]
 }
 
 const initialState: CartsState = {
   carts: [],
-};
+}
 
 const CartsSlice = createSlice({
-  name: "carts",
+  name: 'carts',
   initialState,
   reducers: {
     addCart: (state, action: PayloadAction<ICartData>) => {
-      state.carts.push(action.payload);
+      state.carts.push(action.payload)
     },
     updateCart: (state, action: PayloadAction<ICartData[]>) => {
-      state.carts = [...action.payload];
+      state.carts = [...action.payload]
     },
   },
-});
+})
 
-export const { addCart, updateCart } = CartsSlice.actions;
-export default CartsSlice.reducer;
+export const { addCart, updateCart } = CartsSlice.actions
+export default CartsSlice.reducer

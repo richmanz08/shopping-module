@@ -1,12 +1,13 @@
-"use client";
+'use client'
 
-import { Geist, Geist_Mono, Figtree } from "next/font/google";
-import "./globals.css";
-import "antd/dist/reset.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Provider } from "react-redux";
-import store from "../redux/store";
-import NavbarComponent from "@/components/navbar/navbar";
+import { Geist, Geist_Mono, Figtree } from 'next/font/google'
+import './globals.css'
+import 'antd/dist/reset.css'
+import '@ant-design/v5-patch-for-react-19'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Provider } from 'react-redux'
+import store from '../redux/store'
+import NavbarComponent from '@/components/navbar/navbar'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,26 +19,26 @@ const queryClient = new QueryClient({
     },
     mutations: {
       onError: (error) => {
-        console.error("Mutation Error:", error.message);
+        console.error('Mutation Error:', error.message)
       },
     },
   },
-});
+})
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+})
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -70,5 +71,5 @@ export default function RootLayout({
         </Provider>
       </body>
     </html>
-  );
+  )
 }

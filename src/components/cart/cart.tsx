@@ -1,6 +1,6 @@
-import React from "react";
-import { CartTable } from "./childrens/table";
-import { Payment } from "./childrens/payment";
+import React from 'react'
+import { CartTable } from './childrens/table'
+import { Payment } from './childrens/payment'
 
 interface CartComponentProps {}
 
@@ -10,5 +10,5 @@ export const CartComponent: React.FC<CartComponentProps> = (props) => {
       <CartTable />
       <Payment />
     </div>
-  );
-};
+  )
+}

@@ -1,25 +1,25 @@
-import { Button } from "@/components/button/button";
-import React, { useEffect, useState } from "react";
-import { IProductData } from "@/services/product/product-list";
-import { Counter } from "@/components/counter/counter";
-import { Carousel } from "antd";
-import { map } from "lodash";
+import { Button } from '@/components/button/button'
+import React, { useEffect, useState } from 'react'
+import { IProductData } from '@/services/product/product-list'
+import { Counter } from '@/components/counter/counter'
+import { Carousel } from 'antd'
+import { map } from 'lodash'
 
 interface ModalViewProductProps {
-  open: boolean;
-  productItem: IProductData | null;
-  onOk: (value: number, productDetail: IProductData) => void;
-  onCancel: () => void;
+  open: boolean
+  productItem: IProductData | null
+  onOk: (value: number, productDetail: IProductData) => void
+  onCancel: () => void
 }
 
 export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
-  const { open, productItem, onCancel, onOk } = props;
+  const { open, productItem, onCancel, onOk } = props
 
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(0)
 
   useEffect(() => {
-    if (!open) setAmount(0);
-  }, [open]);
+    if (!open) setAmount(0)
+  }, [open])
 
   return (
     <div
@@ -53,7 +53,7 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                             <div className="bg-secondary-500 h-10 w-full"></div>
                           </div>
                         </div>
-                      );
+                      )
                     })}
                   </Carousel>
                 </div>
@@ -67,7 +67,7 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                       value={amount}
                       limit={productItem?.total_unit ?? 0}
                       onChange={function (value) {
-                        setAmount(value);
+                        setAmount(value)
                       }}
                     />
                   </div>
@@ -80,7 +80,7 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                 type="primary"
                 buttonText="Add to Cart"
                 onClick={function () {
-                  if (productItem) onOk(amount, productItem);
+                  if (productItem) onOk(amount, productItem)
                 }}
               />
               <Button
@@ -88,7 +88,7 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                 type="primaryOutline"
                 buttonText="Cancel"
                 onClick={function () {
-                  onCancel();
+                  onCancel()
                 }}
               />
             </div>
@@ -96,5 +96,5 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

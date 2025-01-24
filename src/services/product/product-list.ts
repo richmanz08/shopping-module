@@ -1,38 +1,38 @@
-import { useQuery } from "@tanstack/react-query";
-import { clientJsonServerAPI } from "../client";
+import { useQuery } from '@tanstack/react-query'
+import { clientJsonServerAPI } from '../client'
 
 /*
  product interface
 */
 export type ProduceCateGoryType =
-  | "CLOTHING"
-  | "ACCESSORIES"
-  | "ELECTRONICS"
-  | "GAMING"
-  | "SPORT";
-export type ProductType = "T-SHIRT" | "PHONE" | "TABLET" | "CAP";
+  | 'CLOTHING'
+  | 'ACCESSORIES'
+  | 'ELECTRONICS'
+  | 'GAMING'
+  | 'SPORT'
+export type ProductType = 'T-SHIRT' | 'PHONE' | 'TABLET' | 'CAP'
 
 export interface IProductData {
-  id: string;
-  image: string[];
-  name: string;
-  product_category_type: ProduceCateGoryType;
-  product_type: ProductType;
-  price: number;
-  rate: number;
-  total_unit: number;
+  id: string
+  image: string[]
+  name: string
+  product_category_type: ProduceCateGoryType
+  product_type: ProductType
+  price: number
+  rate: number
+  total_unit: number
 }
 
 export const getProductList = () => {
   return useQuery({
-    queryKey: ["products"],
+    queryKey: ['products'],
     queryFn: async () => {
       try {
-        const res = await clientJsonServerAPI.get("products");
-        return res.data as IProductData[];
+        const res = await clientJsonServerAPI.get('products')
+        return res.data as IProductData[]
       } catch (error) {
-        throw new Error("Exception get product-list");
+        throw new Error('Exception get product-list')
       }
     },
-  });
-};
+  })
+}

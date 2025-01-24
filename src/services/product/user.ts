@@ -1,27 +1,27 @@
-import { useQuery } from "@tanstack/react-query";
-import { clientJsonServerAPI } from "../client";
+import { useQuery } from '@tanstack/react-query'
+import { clientJsonServerAPI } from '../client'
 
 /*
  user interface
 */
 
 export interface IUserData {
-  id: number;
-  name: string;
-  mail: string;
-  point: number;
+  id: number
+  name: string
+  mail: string
+  point: number
 }
 
 export const getUser = () => {
   return useQuery({
-    queryKey: ["user"],
+    queryKey: ['user'],
     queryFn: async () => {
       try {
-        const res = await clientJsonServerAPI.get("user_data");
-        return res.data as IUserData;
+        const res = await clientJsonServerAPI.get('user_data')
+        return res.data as IUserData
       } catch (error) {
-        throw new Error("Exception get user");
+        throw new Error('Exception get user')
       }
     },
-  });
-};
+  })
+}

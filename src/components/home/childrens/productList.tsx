@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { map } from "lodash";
-import { ProductCard } from "./productCard";
-import { getProductList } from "@/services/product/product-list";
-import { ModalViewProduct } from "./modalViewProduct";
-import { useHomeHooks } from "./hooks";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/redux/store";
-import { loadProduct } from "@/redux/product.store";
+import React, { useEffect, useState } from 'react'
+import { map } from 'lodash'
+import { ProductCard } from './productCard'
+import { getProductList } from '@/services/product/product-list'
+import { ModalViewProduct } from './modalViewProduct'
+import { useHomeHooks } from './hooks'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '@/redux/store'
+import { loadProduct } from '@/redux/product.store'
 
 interface ProductListProps {}
 
 export const ProductList: React.FC<ProductListProps> = () => {
-  const { initialModalViewProduct, onAddProductIntoCartStore } = useHomeHooks();
-  const dispatch = useDispatch<AppDispatch>();
-  const products = useSelector((state: RootState) => state.products.products);
+  const { initialModalViewProduct, onAddProductIntoCartStore } = useHomeHooks()
+  const dispatch = useDispatch<AppDispatch>()
+  const products = useSelector((state: RootState) => state.products.products)
   const [modalViewProductItem, setModalViewProductItem] = useState(
-    initialModalViewProduct
-  );
+    initialModalViewProduct,
+  )
 
-  const { data } = getProductList();
+  const { data } = getProductList()
 
   useEffect(() => {
     if (data) {
-      dispatch(loadProduct(data));
+      dispatch(loadProduct(data))
     }
-  }, [data]);
+  }, [data])
 
   return (
     <div className="mt-8">
@@ -36,27 +36,27 @@ export const ProductList: React.FC<ProductListProps> = () => {
               key={i.id}
               item={i}
               onClickCard={function () {
-                setModalViewProductItem({ open: true, productItem: i });
+                setModalViewProductItem({ open: true, productItem: i })
               }}
             />
-          );
+          )
         })}
       </div>
       <ModalViewProduct
         open={modalViewProductItem.open}
         productItem={modalViewProductItem.productItem}
         onCancel={function () {
-          console.log("ModalViewProduct onCancel");
-          setModalViewProductItem(initialModalViewProduct);
+          console.log('ModalViewProduct onCancel')
+          setModalViewProductItem(initialModalViewProduct)
         }}
         onOk={function (value, productDetail) {
           if (value === 0) {
-            return;
+            return
           }
-          onAddProductIntoCartStore(value, productDetail);
-          setModalViewProductItem(initialModalViewProduct);
+          onAddProductIntoCartStore(value, productDetail)
+          setModalViewProductItem(initialModalViewProduct)
         }}
       />
     </div>
-  );
-};
+  )
+}

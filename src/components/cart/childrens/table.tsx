@@ -1,19 +1,19 @@
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import { map } from "lodash";
+import { XMarkIcon } from '@heroicons/react/24/outline'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/store'
+import { map } from 'lodash'
 import {
   formatMoney,
   productCategoryMap,
   productTypeMap,
-} from "@/common/function/function";
-import { Counter } from "@/components/counter/counter";
+} from '@/common/function/function'
+import { Counter } from '@/components/counter/counter'
 
 interface CartTableProps {}
 
 export const CartTable: React.FC<CartTableProps> = (props) => {
-  const myCarts = useSelector((state: RootState) => state.carts.carts);
+  const myCarts = useSelector((state: RootState) => state.carts.carts)
   return (
     <div>
       <div className="text-h2 font-standard">Shopping Cart.</div>
@@ -50,7 +50,7 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
                         </div>
                         <div className="font-standard text-b7">
                           {productCategoryMap(i.product.product_category_type)}
-                          {", "}
+                          {', '}
                           {productTypeMap(i.product.product_type)}
                         </div>
                       </div>
@@ -66,11 +66,11 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
                     <XMarkIcon className="size-7 cursor-pointer" />
                   </td>
                 </tr>
-              );
+              )
             })}
           </tbody>
         </table>
       </div>
     </div>
-  );
-};
+  )
+}

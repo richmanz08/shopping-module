@@ -1,27 +1,23 @@
-import { ICampaignDiscountData } from "@/services/product/campagin-list";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ICampaignDiscountData } from '@/services/product/campagin-list'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface CartsState {
-  campaigns: ICampaignDiscountData[];
-  loading: boolean;
-  error: string | null;
+  campaigns: ICampaignDiscountData[]
 }
 
 const initialState: CartsState = {
   campaigns: [],
-  loading: false,
-  error: null,
-};
+}
 
 const CampaignDiscountsSlice = createSlice({
-  name: "campaigns",
+  name: 'campaigns',
   initialState,
   reducers: {
     loadCampaigns: (state, action: PayloadAction<ICampaignDiscountData[]>) => {
-      if (!state.campaigns) state.campaigns = action.payload;
+      state.campaigns = action.payload
     },
   },
-});
+})
 
-export const { loadCampaigns } = CampaignDiscountsSlice.actions;
-export default CampaignDiscountsSlice.reducer;
+export const { loadCampaigns } = CampaignDiscountsSlice.actions
+export default CampaignDiscountsSlice.reducer

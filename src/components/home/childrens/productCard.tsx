@@ -1,21 +1,21 @@
-import React from "react";
-import { IProductData } from "@/services/product/product-list";
-import { StarIcon } from "@heroicons/react/16/solid";
+import React from 'react'
+import { IProductData } from '@/services/product/product-list'
+import { StarIcon } from '@heroicons/react/16/solid'
 import {
   formatMoney,
   productCategoryMap,
   productTypeMap,
-} from "@/common/function/function";
-import { get, map } from "lodash";
-import { PhotoIcon } from "@heroicons/react/24/outline";
+} from '@/common/function/function'
+import { get, map } from 'lodash'
+import { PhotoIcon } from '@heroicons/react/24/outline'
 
 interface ProductCardProps {
-  item: IProductData;
-  onClickCard: () => void;
+  item: IProductData
+  onClickCard: () => void
 }
 
 export const ProductCard: React.FC<ProductCardProps> = (props) => {
-  const { item, onClickCard } = props;
+  const { item, onClickCard } = props
   const {
     id,
     image,
@@ -25,15 +25,15 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     price,
     total_unit,
     rate,
-  } = item;
+  } = item
 
-  const starArray = Array.from({ length: rate }, (_, index) => index + 1);
-  const imageURL = get(image, "[0]", null);
+  const starArray = Array.from({ length: rate }, (_, index) => index + 1)
+  const imageURL = get(image, '[0]', null)
   return (
     <button
       className="h-[400px] w-full border border-outline-grey shadow-md rounded-lg overflow-hidden p-4 cursor-pointer"
       onClick={function () {
-        onClickCard();
+        onClickCard()
       }}
     >
       <div className="w-full flex justify-center items-center">
@@ -51,7 +51,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       </div>
       <div className="text-secondary-default flex flex-col justify-start">
         <div className="font-standard text-b7 text-left">
-          {productCategoryMap(product_category_type)},{" "}
+          {productCategoryMap(product_category_type)},{' '}
           {productTypeMap(product_type)}
         </div>
         <div className="font-standard text-a5 text-2-line h-12 text-left">
@@ -65,7 +65,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
                   key={`star${i}`}
                   className="size-4 text-warning-300"
                 />
-              );
+              )
             })}
           </div>
           <div className="text-b6">({total_unit} ชิ้น)</div>
@@ -73,5 +73,5 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
         <div className="text-t5 text-left">{formatMoney(price)} THB</div>
       </div>
     </button>
-  );
-};
+  )
+}

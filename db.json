@@ -1,205 +1,201 @@
 {
-    "products": [
-        {
-            "id": "HBTS001",
-            "image": [
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.POLO.CLUB.SPORTY/6ddd0349.jpg",
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.POLO.CLUB.SPORTY/3a6ffa43.jpg"
-            ],
-            "name": "HOMEBOY.V HB.POLO.CLUB.SPORTY",
-            "product_category_type": "CLOTHING",
-            "product_type": "T-SHIRT",
-            "price": 550,
-            "rate": 4,
-            "total_unit": 20
-        },
-        {
-            "id": "HBTS002",
-            "image": [
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.THE.WINNER.JERSEY/c30c3fcc.jpg",
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.THE.WINNER.JERSEY/b69d1574.jpg"
-            ],
-            "name": "HB.THE.WINNER.JERSEY NEW COLLECTION HOMEBOY SPORT CLUB DROP 2 IN",
-            "product_category_type": "CLOTHING",
-            "product_type": "T-SHIRT",
-            "price": 590,
-            "rate": 5,
-            "total_unit": 25
-        },
-        {
-            "id": "CAP001",
-            "image": [
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.SPACE.CAP/a9b04b3a.jpg",
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.SPACE.CAP/86bfe1a4.jpg"
-            ],
-            "name": "HOMEBOY.V HB.SPACE.CAP-C.BLACK ดำ",
-            "product_category_type": "ACCESSORIES",
-            "product_type": "CAP",
-            "price": 590,
-            "rate": 4,
-            "total_unit": 400
-        },
-        {
-            "id": "CAP002",
-            "image": [
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.5PANEL.CAP/52af5723.jpg",
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.5PANEL.CAP/da468600.jpg"
-            ],
-            "name": "HOMEBOY.V HB.5PANEL.CAP-C.BLUE น้ำเงิน",
-            "product_category_type": "ACCESSORIES",
-            "product_type": "CAP",
-            "price": 590,
-            "rate": 4,
-            "total_unit": 200
-        },
-        {
-            "id": "HBTS003",
-            "image": [
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.JOGGER.PANTS/9461ddff.jpg",
-                "https://aws.cmzimg.com/upload/10261/product-images/HB.JOGGER.PANTS/09bf34be.jpg"
-            ],
-            "name": "HOMEBOY.V HB.JOGGER.PANTS-C.BLACK ดำ",
-            "product_category_type": "CLOTHING",
-            "product_type": "PANT",
-            "price": 890,
-            "rate": 1,
-            "total_unit": 20
-        },
-        {
-            "id": "HBTS004",
-            "image": [
-                "https://aws.cmzimg.com/upload/10261/product-images/L.A.BOY.LOOSE.JEANS/ec378fe8.jpg",
-                "https://aws.cmzimg.com/upload/10261/product-images/L.A.BOY.LOOSE.JEANS/32279f14.jpg"
-            ],
-            "name": "T K P A.L.A.BOY.LOOSE.JEANS",
-            "product_category_type": "CLOTHING",
-            "product_type": "PANT",
-            "price": 890,
-            "rate": 5,
-            "total_unit": 0
-        },
-        {
-            "id": "PHONE001",
-            "image": [
-                "https://www.ais.th/content/dam/ais/consumer/store/devices/apple/iphone/iphone-15-series/iphone-15-pro-max/product-detail/th/blue-titanium/iphone-15-pro-max-pdp-image-position-1a-blue-titanium-color.jpg"
-            ],
-            "name": "iPhone 15 Pro Max",
-            "product_category_type": "ELECTRONICS",
-            "product_type": "PHONE",
-            "price": 32200,
-            "rate": 5,
-            "total_unit": 100
-        },
-        {
-            "id": "PHONE002",
-            "image": [
-                "https://www.ais.th/content/dam/ais/consumer/store/devices/samsung/phone/galaxy-s25-series/s25-5g/product-detail/mint/samsung-galaxy-s25-5g-image-pdp-position-1-color-mint.jpg",
-                "https://www.ais.th/content/dam/ais/consumer/store/devices/samsung/phone/galaxy-s25-series/s25-5g/product-detail/mint/samsung-galaxy-s25-5g-image-pdp-position-6-color-mint.jpg"
-            ],
-            "name": "Samsung Galaxy S25 5G",
-            "product_category_type": "ELECTRONICS",
-            "product_type": "PHONE",
-            "price": 24500,
-            "rate": 2,
-            "total_unit": 99
-        },
-        {
-            "id": "PHONE003",
-            "image": [
-                "https://www.ais.th/content/dam/ais/consumer/store/devices/huawei/phone/pura-70-pro/product-detail/white/huawei-pura-70-pro-image-pdp-position-1-color-white.jpg"
-            ],
-            "name": "HUAWEI Pura 70 Pro (RAM 12GB)",
-            "product_category_type": "ELECTRONICS",
-            "product_type": "PHONE",
-            "price": 26590,
-            "rate": 2,
-            "total_unit": 99
-        },
-        {
-            "id": "TAB001",
-            "image": [
-                "https://www.ais.th/content/dam/ais/consumer/store/devices/apple/ipad/ipad-mini/a17-pro-ship/wifi/product-detail/purple/ipad-mini-a17-pro-ship-wifi-image-pdp-position-1-color-purple.jpg"
-            ],
-            "name": "iPad mini รุ่น 7 Wi-Fi",
-            "product_category_type": "ELECTRONICS",
-            "product_type": "TABLET",
-            "price": 17900,
-            "rate": 2,
-            "total_unit": 99
-        },
-        {
-            "id": "TAB002",
-            "image": [
-                "https://www.ais.th/content/dam/ais/consumer/store/devices/samsung/tablets/galaxy-tab-s10-series/galaxy-tab-s10-plus/product-detail/moonstone-gray/samsung-galaxy-tab-s10-plus-image-pdp-position-1-color-moonstone-gray.jpg"
-            ],
-            "name": "Samsung Galaxy Tab S10 Plus Wi-Fi",
-            "product_category_type": "ELECTRONICS",
-            "product_type": "TABLET",
-            "price": 36900,
-            "rate": 2,
-            "total_unit": 99
-        }
-    ],
-    "campaigns": [
-        {
-            "name": "Fixed amount",
-            "type": "FIXED_AMOUNT",
-            "parameter": "AMOUNT",
-            "category": "COUPON",
-            "accept_product_category": [],
-            "amount": 50,
-            "max": 50,
-            "description": "Discounts the entire cart by subtracting an amount from the total price"
-        },
-        {
-            "name": "Percentage discount",
-            "type": "PERCENTAGE_DISCOUNT",
-            "parameter": "PERCENTAGE",
-            "category": "COUPON",
-            "accept_product_category": [],
-            "amount": 10,
-            "max": null,
-            "description": "Discounts the entire cart by subtracting a percentage from the total price"
-        },
-        {
-            "name": "Percentage discount by item category",
-            "type": "PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY",
-            "parameter": "PERCENTAGE",
-            "category": "ON_TOP",
-            "accept_product_category": [
-                "CLOTHING",
-                "ACCESSORIES",
-                "ELECTRONICS"
-            ],
-            "amount": 15,
-            "max": null,
-            "description": "Discount the entire amount of a specif category of items in cart"
-        },
-        {
-            "name": "Discount by points",
-            "type": "DISCOUNT_BY_POINT",
-            "parameter": "PERCENTAGE",
-            "category": "ON_TOP",
-            "accept_product_category": [],
-            "amount": 1,
-            "max": 20,
-            "description": "Users spent points for a fixed amount of discount (1 point = 1 THB). The amount will be capped at 20% of total price"
-        },
-        {
-            "name": "Special campaigns",
-            "type": "SPECIAL_CAMPAIGNS",
-            "parameter": "AMOUNT",
-            "category": "SEASONAL",
-            "accept_product_category": [],
-            "amount": 40,
-            "max": null,
-            "description": "From the total price, at every X THB, subtracting a fixed amount Y THB"
-        }
-    ],
-    "user_data": {
-        "id": 1,
-        "name": "Mr.arnon",
-        "mail": "arnonrungrueng08@gmail.com",
-        "point": 30
+  "products": [
+    {
+      "id": "HBTS001",
+      "image": [
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.POLO.CLUB.SPORTY/6ddd0349.jpg",
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.POLO.CLUB.SPORTY/3a6ffa43.jpg"
+      ],
+      "name": "HOMEBOY.V HB.POLO.CLUB.SPORTY",
+      "product_category_type": "CLOTHING",
+      "product_type": "T-SHIRT",
+      "price": 550,
+      "rate": 4,
+      "total_unit": 20
+    },
+    {
+      "id": "HBTS002",
+      "image": [
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.THE.WINNER.JERSEY/c30c3fcc.jpg",
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.THE.WINNER.JERSEY/b69d1574.jpg"
+      ],
+      "name": "HB.THE.WINNER.JERSEY NEW COLLECTION HOMEBOY SPORT CLUB DROP 2 IN",
+      "product_category_type": "CLOTHING",
+      "product_type": "T-SHIRT",
+      "price": 590,
+      "rate": 5,
+      "total_unit": 25
+    },
+    {
+      "id": "CAP001",
+      "image": [
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.SPACE.CAP/a9b04b3a.jpg",
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.SPACE.CAP/86bfe1a4.jpg"
+      ],
+      "name": "HOMEBOY.V HB.SPACE.CAP-C.BLACK ดำ",
+      "product_category_type": "ACCESSORIES",
+      "product_type": "CAP",
+      "price": 590,
+      "rate": 4,
+      "total_unit": 400
+    },
+    {
+      "id": "CAP002",
+      "image": [
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.5PANEL.CAP/52af5723.jpg",
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.5PANEL.CAP/da468600.jpg"
+      ],
+      "name": "HOMEBOY.V HB.5PANEL.CAP-C.BLUE น้ำเงิน",
+      "product_category_type": "ACCESSORIES",
+      "product_type": "CAP",
+      "price": 590,
+      "rate": 4,
+      "total_unit": 200
+    },
+    {
+      "id": "HBTS003",
+      "image": [
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.JOGGER.PANTS/9461ddff.jpg",
+        "https://aws.cmzimg.com/upload/10261/product-images/HB.JOGGER.PANTS/09bf34be.jpg"
+      ],
+      "name": "HOMEBOY.V HB.JOGGER.PANTS-C.BLACK ดำ",
+      "product_category_type": "CLOTHING",
+      "product_type": "PANT",
+      "price": 890,
+      "rate": 1,
+      "total_unit": 20
+    },
+    {
+      "id": "HBTS004",
+      "image": [
+        "https://aws.cmzimg.com/upload/10261/product-images/L.A.BOY.LOOSE.JEANS/ec378fe8.jpg",
+        "https://aws.cmzimg.com/upload/10261/product-images/L.A.BOY.LOOSE.JEANS/32279f14.jpg"
+      ],
+      "name": "T K P A.L.A.BOY.LOOSE.JEANS",
+      "product_category_type": "CLOTHING",
+      "product_type": "PANT",
+      "price": 890,
+      "rate": 5,
+      "total_unit": 0
+    },
+    {
+      "id": "PHONE001",
+      "image": [
+        "https://www.ais.th/content/dam/ais/consumer/store/devices/apple/iphone/iphone-15-series/iphone-15-pro-max/product-detail/th/blue-titanium/iphone-15-pro-max-pdp-image-position-1a-blue-titanium-color.jpg"
+      ],
+      "name": "iPhone 15 Pro Max",
+      "product_category_type": "ELECTRONICS",
+      "product_type": "PHONE",
+      "price": 32200,
+      "rate": 5,
+      "total_unit": 100
+    },
+    {
+      "id": "PHONE002",
+      "image": [
+        "https://www.ais.th/content/dam/ais/consumer/store/devices/samsung/phone/galaxy-s25-series/s25-5g/product-detail/mint/samsung-galaxy-s25-5g-image-pdp-position-1-color-mint.jpg",
+        "https://www.ais.th/content/dam/ais/consumer/store/devices/samsung/phone/galaxy-s25-series/s25-5g/product-detail/mint/samsung-galaxy-s25-5g-image-pdp-position-6-color-mint.jpg"
+      ],
+      "name": "Samsung Galaxy S25 5G",
+      "product_category_type": "ELECTRONICS",
+      "product_type": "PHONE",
+      "price": 24500,
+      "rate": 2,
+      "total_unit": 99
+    },
+    {
+      "id": "PHONE003",
+      "image": [
+        "https://www.ais.th/content/dam/ais/consumer/store/devices/huawei/phone/pura-70-pro/product-detail/white/huawei-pura-70-pro-image-pdp-position-1-color-white.jpg"
+      ],
+      "name": "HUAWEI Pura 70 Pro (RAM 12GB)",
+      "product_category_type": "ELECTRONICS",
+      "product_type": "PHONE",
+      "price": 26590,
+      "rate": 2,
+      "total_unit": 99
+    },
+    {
+      "id": "TAB001",
+      "image": [
+        "https://www.ais.th/content/dam/ais/consumer/store/devices/apple/ipad/ipad-mini/a17-pro-ship/wifi/product-detail/purple/ipad-mini-a17-pro-ship-wifi-image-pdp-position-1-color-purple.jpg"
+      ],
+      "name": "iPad mini รุ่น 7 Wi-Fi",
+      "product_category_type": "ELECTRONICS",
+      "product_type": "TABLET",
+      "price": 17900,
+      "rate": 2,
+      "total_unit": 99
+    },
+    {
+      "id": "TAB002",
+      "image": [
+        "https://www.ais.th/content/dam/ais/consumer/store/devices/samsung/tablets/galaxy-tab-s10-series/galaxy-tab-s10-plus/product-detail/moonstone-gray/samsung-galaxy-tab-s10-plus-image-pdp-position-1-color-moonstone-gray.jpg"
+      ],
+      "name": "Samsung Galaxy Tab S10 Plus Wi-Fi",
+      "product_category_type": "ELECTRONICS",
+      "product_type": "TABLET",
+      "price": 36900,
+      "rate": 2,
+      "total_unit": 99
     }
+  ],
+  "campaigns": [
+    {
+      "name": "Fixed amount",
+      "type": "FIXED_AMOUNT",
+      "parameter": "AMOUNT",
+      "category": "COUPON",
+      "accept_product_category": [],
+      "amount": 50,
+      "max": 50,
+      "description": "Discounts the entire cart by subtracting an amount from the total price"
+    },
+    {
+      "name": "Percentage discount",
+      "type": "PERCENTAGE_DISCOUNT",
+      "parameter": "PERCENTAGE",
+      "category": "COUPON",
+      "accept_product_category": [],
+      "amount": 10,
+      "max": null,
+      "description": "Discounts the entire cart by subtracting a percentage from the total price"
+    },
+    {
+      "name": "Percentage discount by item category",
+      "type": "PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY",
+      "parameter": "PERCENTAGE",
+      "category": "ON_TOP",
+      "accept_product_category": ["CLOTHING", "ACCESSORIES", "ELECTRONICS"],
+      "amount": 15,
+      "max": null,
+      "description": "Discount the entire amount of a specif category of items in cart"
+    },
+    {
+      "name": "Discount by points",
+      "type": "DISCOUNT_BY_POINT",
+      "parameter": "PERCENTAGE",
+      "category": "ON_TOP",
+      "accept_product_category": [],
+      "amount": 1,
+      "max": 20,
+      "description": "Users spent points for a fixed amount of discount (1 point = 1 THB). The amount will be capped at 20% of total price"
+    },
+    {
+      "name": "Special campaigns",
+      "type": "SPECIAL_CAMPAIGNS",
+      "parameter": "AMOUNT",
+      "category": "SEASONAL",
+      "accept_product_category": [],
+      "amount": 40,
+      "max": null,
+      "description": "From the total price, at every X THB, subtracting a fixed amount Y THB"
+    }
+  ],
+  "user_data": {
+    "id": 1,
+    "name": "Mr.arnon",
+    "mail": "arnonrungrueng08@gmail.com",
+    "point": 30
+  }
 }
