@@ -1,30 +1,25 @@
 import { Button } from "@/components/button/button";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IProductData } from "@/services/product/product-list";
 import { Counter } from "@/components/counter/counter";
 import { Carousel } from "antd";
+import { map } from "lodash";
 
 interface ModalViewProductProps {
   open: boolean;
-  productItem: IProductData;
-  onOk: () => void;
+  productItem: IProductData | null;
+  onOk: (value: number, productDetail: IProductData) => void;
   onCancel: () => void;
 }
-
-const contentStyle: React.CSSProperties = {
-  margin: 0,
-  height: "160px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79",
-};
 
 export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
   const { open, productItem, onCancel, onOk } = props;
 
   const [amount, setAmount] = useState(0);
-  console.log({ amount });
+
+  useEffect(() => {
+    if (!open) setAmount(0);
+  }, [open]);
 
   return (
     <div
@@ -41,42 +36,42 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 w-[896px] max-w-4xl">
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <div>
-                <Carousel afterChange={function () {}}>
-                  <div>
-                    <h3 style={contentStyle}>1</h3>
+              <div className="flex flex-row gap-4">
+                <div className="w-[320px] h-[440px] border border-outline-grey rounded-lg bg-secondary-500 pb-6">
+                  <Carousel autoplay>
+                    {map(productItem?.image, function (url, index) {
+                      return (
+                        <div key={`product_img_${index + 1}`}>
+                          <div className="text-center bg-primary-default m-0">
+                            <img
+                              src={url}
+                              alt={`${productItem?.name} no img`}
+                              className="w-full h-[400px] object-cover"
+                            />
+                            <div className="bg-secondary-500 h-10 w-full"></div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </Carousel>
+                </div>
+
+                <div className="flex flex-col justify-between w-full">
+                  <div className="text-t3 font-standard">
+                    {productItem?.name}
                   </div>
-                  <div>
-                    <h3 style={contentStyle}>2</h3>
+                  <div className="w-full flex justify-start">
+                    <Counter
+                      value={amount}
+                      limit={productItem?.total_unit ?? 0}
+                      onChange={function (value) {
+                        setAmount(value);
+                      }}
+                    />
                   </div>
-                  <div>
-                    <h3 style={contentStyle}>3</h3>
-                  </div>
-                  <div>
-                    <h3 style={contentStyle}>4</h3>
-                  </div>
-                </Carousel>
-                <img
-                  src={productItem?.image[0]}
-                  alt={`${productItem?.name} no img`}
-                  className="w-[160px] h-[240px] object-contain"
-                />
-                <Counter
-                  value={amount}
-                  limit={productItem?.total_unit}
-                  onChange={function (value) {
-                    setAmount(value);
-                  }}
-                  // onDecrease={function () {
-                  //   if (amount > 0) setAmount((prev) => prev - 1);
-                  // }}
-                  // onIncrease={function () {
-                  //   if (amount < productItem.total_unit)
-                  //     setAmount((prev) => ++prev);
-                  // }}
-                />
+                </div>
               </div>
             </div>
             <div className="px-4 py-4 sm:flex sm:flex-row-reverse">
@@ -85,7 +80,7 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                 type="primary"
                 buttonText="Add to Cart"
                 onClick={function () {
-                  onOk();
+                  if (productItem) onOk(amount, productItem);
                 }}
               />
               <Button

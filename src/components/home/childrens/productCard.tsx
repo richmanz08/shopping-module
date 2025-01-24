@@ -1,8 +1,13 @@
 import React from "react";
 import { IProductData } from "@/services/product/product-list";
 import { StarIcon } from "@heroicons/react/16/solid";
-import { formatMoney } from "@/common/function/function";
-import { map } from "lodash";
+import {
+  formatMoney,
+  productCategoryMap,
+  productTypeMap,
+} from "@/common/function/function";
+import { get, map } from "lodash";
+import { PhotoIcon } from "@heroicons/react/24/outline";
 
 interface ProductCardProps {
   item: IProductData;
@@ -23,7 +28,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
   } = item;
 
   const starArray = Array.from({ length: rate }, (_, index) => index + 1);
-
+  const imageURL = get(image, "[0]", null);
   return (
     <button
       className="h-[400px] w-full border border-outline-grey shadow-md rounded-lg overflow-hidden p-4 cursor-pointer"
@@ -32,15 +37,22 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       }}
     >
       <div className="w-full flex justify-center items-center">
-        <img
-          src={image[0]}
-          alt={`${name} no img`}
-          className="w-[160px] h-[240px] object-contain"
-        />
+        {imageURL ? (
+          <img
+            src={imageURL}
+            alt={`${name} no img`}
+            className="w-[160px] h-[240px] object-contain"
+          />
+        ) : (
+          <div className="flex justify-center items-center w-[160px] h-[240px]">
+            <PhotoIcon className="size-16 text-secondary-300" />
+          </div>
+        )}
       </div>
       <div className="text-secondary-default flex flex-col justify-start">
         <div className="font-standard text-b7 text-left">
-          {product_category_type},{product_type}
+          {productCategoryMap(product_category_type)},{" "}
+          {productTypeMap(product_type)}
         </div>
         <div className="font-standard text-a5 text-2-line h-12 text-left">
           {name}

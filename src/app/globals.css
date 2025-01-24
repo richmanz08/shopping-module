@@ -30,3 +30,7 @@ body {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
+
+.ant-badge-count {
+  background-color: #3386ff !important;
+}

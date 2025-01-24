@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { map } from "lodash";
 import { ProductCard } from "./productCard";
-import { getProductList, IProductData } from "@/services/product/product-list";
+import { getProductList } from "@/services/product/product-list";
 import { ModalViewProduct } from "./modalViewProduct";
 import { useHomeHooks } from "./hooks";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/redux/store";
+import { loadProduct } from "@/redux/product.store";
+import { addCart } from "@/redux/cart.store";
 
 interface ProductListProps {}
 
 export const ProductList: React.FC<ProductListProps> = () => {
   const { initialModalViewProduct } = useHomeHooks();
-  const [products, setProducts] = useState<IProductData[]>([]);
+  const dispatch = useDispatch<AppDispatch>();
+  const products = useSelector((state: RootState) => state.products.products);
   const [modalViewProductItem, setModalViewProductItem] = useState(
     initialModalViewProduct
   );
@@ -18,7 +23,7 @@ export const ProductList: React.FC<ProductListProps> = () => {
 
   useEffect(() => {
     if (data) {
-      setProducts(data);
+      dispatch(loadProduct(data));
     }
   }, [data]);
 
@@ -45,7 +50,20 @@ export const ProductList: React.FC<ProductListProps> = () => {
           console.log("ModalViewProduct onCancel");
           setModalViewProductItem(initialModalViewProduct);
         }}
-        onOk={function () {}}
+        onOk={function (value, productDetail) {
+          if (value === 0) {
+            return;
+          }
+          // to do add to cart
+
+          dispatch(
+            addCart({
+              product: productDetail,
+              amount: value,
+            })
+          );
+          setModalViewProductItem(initialModalViewProduct);
+        }}
       />
     </div>
   );

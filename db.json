@@ -139,5 +139,61 @@
             "rate": 2,
             "total_unit": 99
         }
+    ],
+    "campaigns": [
+        {
+            "name": "Fixed amount",
+            "type": "FIXED_AMOUNT",
+            "parameter": "AMOUNT",
+            "category": "COUPON",
+            "accept_product_category": [],
+            "amount": 50,
+            "max": 50,
+            "description": "Discounts the entire cart by subtracting an amount from the total price"
+        },
+        {
+            "name": "Percentage discount",
+            "type": "PERCENTAGE_DISCOUNT",
+            "parameter": "PERCENTAGE",
+            "category": "COUPON",
+            "accept_product_category": [],
+            "amount": 10,
+            "max": null,
+            "description": "Discounts the entire cart by subtracting a percentage from the total price"
+        },
+        {
+            "name": "Percentage discount by item category",
+            "type": "PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY",
+            "parameter": "PERCENTAGE",
+            "category": "ON_TOP",
+            "accept_product_category": [
+                "CLOTHING",
+                "ACCESSORIES",
+                "ELECTRONICS"
+            ],
+            "amount": 15,
+            "max": null,
+            "description": "Discount the entire amount of a specif category of items in cart"
+        },
+        {
+            "name": "Discount by points",
+            "type": "DISCOUNT_BY_POINT",
+            "parameter": "PERCENTAGE",
+            "category": "ON_TOP",
+            "accept_product_category": [],
+            "amount": 1,
+            "max": 20,
+            "description": "Users spent points for a fixed amount of discount (1 point = 1 THB). The amount will be capped at 20% of total price"
+        },
+        {
+            "name": "Special campaigns",
+            "type": "SPECIAL_CAMPAIGNS",
+            "parameter": "AMOUNT",
+            "category": "SEASONAL",
+            "accept_product_category": [],
+            "amount": 40,
+            "max": null,
+            "description": "From the total price, at every X THB, subtracting a fixed amount Y THB"
+        }
     ]
 }

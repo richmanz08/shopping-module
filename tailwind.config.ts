@@ -12,7 +12,8 @@ export default {
         standard: ["Figtree", "sans-serif"],
       },
       fontSize: {
-        h2: ["32px", { lineHeight: "48px", fontWeight: "700" }],
+        h1: ["44px", { lineHeight: "54px", fontWeight: "900" }],
+        h2: ["32px", { lineHeight: "48px", fontWeight: "900" }],
         h4: ["24px", { lineHeight: "36px", fontWeight: "700" }],
         h5: ["22px", { lineHeight: "30px", fontWeight: "700" }],
         h6: ["18px", { lineHeight: "26px", fontWeight: "700" }],
@@ -45,10 +46,12 @@ export default {
           300: "#B0B0B0",
           400: "#E4E7EC",
           500: "#98A2B3",
+          600: "#F2F8F2",
         },
         outline: {
           blue: "#DEEDFE",
           grey: "#E4E7EC",
+          bg: "#E4E5E6",
           darkGrey: "#D7D7D7",
         },
         warning: {

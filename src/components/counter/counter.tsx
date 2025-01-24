@@ -1,5 +1,5 @@
 import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface CounterProps {
   value: number;
@@ -9,29 +9,24 @@ interface CounterProps {
 
 export const Counter: React.FC<CounterProps> = (props) => {
   const { value, limit, onChange } = props;
-  const [amount, setAmount] = useState(0);
-
-  useEffect(() => {
-    onChange(amount);
-  }, [amount]);
 
   return (
     <div className="flex items-center gap-4">
       <button
-        disabled={amount === limit}
+        disabled={value === limit}
         className="shadow-md rounded-full p-3 disabled:cursor-not-allowed"
         onClick={function () {
-          if (amount < limit) setAmount((prev) => ++prev);
+          if (value < limit) onChange(value + 1);
         }}
       >
         <PlusIcon className="size-6 text-secondary-default" />
       </button>
       <div className="text-t3">{value}</div>
       <button
-        disabled={amount === 0}
+        disabled={value === 0}
         className="shadow-md rounded-full p-3 disabled:cursor-not-allowed disabled:text-secondary-300"
         onClick={function () {
-          if (amount > 0) setAmount((prev) => prev - 1);
+          if (value > 0) onChange(value - 1);
         }}
       >
         <MinusIcon className="size-6 text-secondary-default" />

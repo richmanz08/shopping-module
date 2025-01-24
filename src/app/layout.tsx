@@ -4,6 +4,9 @@ import { Geist, Geist_Mono, Figtree } from "next/font/google";
 import "./globals.css";
 import "antd/dist/reset.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Provider } from "react-redux";
+import store from "../redux/store";
+import NavbarComponent from "@/components/navbar/navbar";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -59,9 +62,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
+        <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+            <NavbarComponent />
+            {children}
+          </QueryClientProvider>
+        </Provider>
       </body>
     </html>
   );
