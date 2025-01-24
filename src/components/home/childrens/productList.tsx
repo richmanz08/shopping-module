@@ -7,12 +7,11 @@ import { useHomeHooks } from "./hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { loadProduct } from "@/redux/product.store";
-import { addCart } from "@/redux/cart.store";
 
 interface ProductListProps {}
 
 export const ProductList: React.FC<ProductListProps> = () => {
-  const { initialModalViewProduct } = useHomeHooks();
+  const { initialModalViewProduct, onAddProductIntoCartStore } = useHomeHooks();
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector((state: RootState) => state.products.products);
   const [modalViewProductItem, setModalViewProductItem] = useState(
@@ -54,14 +53,7 @@ export const ProductList: React.FC<ProductListProps> = () => {
           if (value === 0) {
             return;
           }
-          // to do add to cart
-
-          dispatch(
-            addCart({
-              product: productDetail,
-              amount: value,
-            })
-          );
+          onAddProductIntoCartStore(value, productDetail);
           setModalViewProductItem(initialModalViewProduct);
         }}
       />

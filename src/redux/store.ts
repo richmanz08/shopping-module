@@ -13,6 +13,7 @@ const store = configureStore({
     carts: cartReducer,
     campaigns: CampaignsDiscountReducer,
   },
+  devTools: false,
 });
 
 // Export types for root state and dispatch

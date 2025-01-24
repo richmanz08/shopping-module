@@ -1,16 +1,17 @@
+import { IUserData } from "@/services/product/user";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface IUserData {
-  name: string;
-  mail: string;
-}
 
 interface UserState {
   user: IUserData | null;
 }
 
 const initialState: UserState = {
-  user: null,
+  user: {
+    id: 0,
+    name: "",
+    mail: "",
+    point: 0,
+  },
 };
 
 const userSlice = createSlice({

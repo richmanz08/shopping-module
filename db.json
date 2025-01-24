@@ -195,5 +195,11 @@
             "max": null,
             "description": "From the total price, at every X THB, subtracting a fixed amount Y THB"
         }
-    ]
+    ],
+    "user_data": {
+        "id": 1,
+        "name": "Mr.arnon",
+        "mail": "arnonrungrueng08@gmail.com",
+        "point": 30
+    }
 }

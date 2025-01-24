@@ -8,7 +8,7 @@ const HomeComponent: React.FC<HomeComponentProps> = (props) => {
   const {} = props;
   return (
     <div className="flex flex-col w-full max-w-screen-xl justify-center px-8">
-      <AdverTisePaper />
+      {/* <AdverTisePaper /> */}
       <ProductList />
     </div>
   );

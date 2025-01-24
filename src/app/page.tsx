@@ -1,19 +1,14 @@
 "use client";
 import FooterComponent from "@/components/footer/footer";
 import HomeComponent from "@/components/home/home";
-// import NavbarComponent from "@/components/navbar/navbar";
 import { loadCampaigns } from "@/redux/campaign.store";
-import { AppDispatch, RootState } from "@/redux/store";
+import { AppDispatch } from "@/redux/store";
 import { getCampaignList } from "@/services/product/campagin-list";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
-  const campaigns = useSelector(
-    (state: RootState) => state.campaigns.campaigns
-  );
-  console.log({ campaigns });
 
   /*
   fetch campaign list data from api
@@ -27,7 +22,6 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white items-center font-[family-name:var(--font-geist-sans)]">
-      {/* <NavbarComponent /> */}
       <HomeComponent />
       <FooterComponent />
     </div>

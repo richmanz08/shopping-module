@@ -1,5 +1,7 @@
 "use client";
-import { RootState } from "@/redux/store";
+import { AppDispatch, RootState } from "@/redux/store";
+import { setUser } from "@/redux/user.store";
+import { getUser } from "@/services/product/user";
 import {
   HeartIcon,
   PhoneIcon,
@@ -9,13 +11,22 @@ import {
 import { Badge } from "antd";
 import { size } from "lodash";
 import { useRouter } from "next/navigation";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const NavbarComponent: React.FC<NavbarComponentProps> = (props) => {
+const NavbarComponent: React.FC<NavbarComponentProps> = () => {
   const router = useRouter();
-  const {} = props;
+  const dispatch = useDispatch<AppDispatch>();
   const carts = useSelector((state: RootState) => state.carts.carts);
+  const userInfo = useSelector((state: RootState) => state.user.user);
+
+  const { data: userData } = getUser();
+
+  console.log({ userInfo });
+  useEffect(() => {
+    if (userData) dispatch(setUser(userData));
+  }, [userData]);
+
   return (
     <div className="w-full flex flex-col mb-6 ">
       <div className="h-11 bg-primary-default w-full flex items-center justify-between p-2">

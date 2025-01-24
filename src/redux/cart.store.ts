@@ -21,8 +21,11 @@ const CartsSlice = createSlice({
     addCart: (state, action: PayloadAction<ICartData>) => {
       state.carts.push(action.payload);
     },
+    updateCart: (state, action: PayloadAction<ICartData[]>) => {
+      state.carts = [...action.payload];
+    },
   },
 });
 
-export const { addCart } = CartsSlice.actions;
+export const { addCart, updateCart } = CartsSlice.actions;
 export default CartsSlice.reducer;

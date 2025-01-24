@@ -8,6 +8,7 @@ import {
   productCategoryMap,
   productTypeMap,
 } from "@/common/function/function";
+import { Counter } from "@/components/counter/counter";
 
 interface CartTableProps {}
 
@@ -55,11 +56,13 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3">{i.amount}</td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 text-center">
+                    <div className="font-standard text-a5">{i.amount}</div>
+                  </td>
+                  <td className="px-4 py-3 text-center">
                     {formatMoney(i.amount * i.product.price)}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 text-right">
                     <XMarkIcon className="size-7 cursor-pointer" />
                   </td>
                 </tr>
