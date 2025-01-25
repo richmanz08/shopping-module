@@ -23,7 +23,7 @@ export default function Page() {
   }, [data])
 
   return (
-    <div className="flex min-h-screen flex-col bg-white items-center font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col bg-white items-center ">
       <CartComponent />
     </div>
   )

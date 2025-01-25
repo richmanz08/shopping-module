@@ -50,13 +50,11 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
         )}
       </div>
       <div className="text-secondary-default flex flex-col justify-start">
-        <div className="font-standard text-b7 text-left">
+        <div className="  text-b7 text-left">
           {productCategoryMap(product_category_type)},{' '}
           {productTypeMap(product_type)}
         </div>
-        <div className="font-standard text-a5 text-2-line h-12 text-left">
-          {name}
-        </div>
+        <div className="  text-a5 text-2-line h-12 text-left">{name}</div>
         <div className="flex gap-2 items-center">
           <div className="flex gap-[1px]">
             {map(starArray, function (i) {

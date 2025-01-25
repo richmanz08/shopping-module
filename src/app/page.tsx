@@ -1,5 +1,4 @@
 'use client'
-import FooterComponent from '@/components/footer/footer'
 import HomeComponent from '@/components/home/home'
 import { loadCampaigns } from '@/redux/campaign.store'
 import { AppDispatch } from '@/redux/store'
@@ -21,9 +20,8 @@ export default function Home() {
   }, [data])
 
   return (
-    <div className="flex min-h-screen flex-col bg-white items-center font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col bg-white items-center">
       <HomeComponent />
-      <FooterComponent />
     </div>
   )
 }

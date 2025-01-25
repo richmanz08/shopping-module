@@ -59,9 +59,7 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                 </div>
 
                 <div className="flex flex-col justify-between w-full">
-                  <div className="text-t3 font-standard">
-                    {productItem?.name}
-                  </div>
+                  <div className="text-t3  ">{productItem?.name}</div>
                   <div className="w-full flex justify-start">
                     <Counter
                       value={amount}

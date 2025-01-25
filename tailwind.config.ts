@@ -8,9 +8,9 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        standard: ['Figtree', 'sans-serif'],
-      },
+      // fontFamily: {
+      //   standard: ['Figtree', 'sans-serif'],
+      // },
       fontSize: {
         h1: ['44px', { lineHeight: '54px', fontWeight: '900' }],
         h2: ['32px', { lineHeight: '48px', fontWeight: '900' }],
@@ -26,7 +26,7 @@ export default {
         a3: ['20px', { lineHeight: '30px', fontWeight: '500' }],
         a4: ['18px', { lineHeight: '28px', fontWeight: '500' }],
         a5: ['16px', { lineHeight: '24px', fontWeight: '500' }],
-        a6: ['14px', { lineHeight: '24px', fontWeight: '500' }],
+        a6: ['14px', { lineHeight: '18px', fontWeight: '500' }],
         a7: ['12px', { lineHeight: '22px', fontWeight: '500' }],
         b2: ['22px', { lineHeight: '32px', fontWeight: '400' }],
         b3: ['20px', { lineHeight: '30px', fontWeight: '400' }],
@@ -49,6 +49,7 @@ export default {
           400: '#E4E7EC',
           500: '#98A2B3',
           600: '#F2F8F2',
+          700: '#757575',
         },
         outline: {
           blue: '#DEEDFE',
@@ -65,6 +66,7 @@ export default {
         warm: {
           100: '#FC7537 ',
           200: '#FE8248 ',
+          300: '#FE4960',
         },
       },
     },

@@ -42,15 +42,15 @@ export const Coupon: React.FC<CouponProps> = (props) => {
       <BanknotesIcon className="size-16 absolute top-6 right-6 opacity-15 flex z-10" />
       <div className="flex flex-nowrap w-full z-20 relative">
         <div className="flex flex-col w-3/4">
-          <div className="whitespace-nowrap text-1-line font-standard text-white text-t4">
+          <div className="whitespace-nowrap text-1-line   text-white text-t4">
             {title}
           </div>
-          <div className="text-2-line font-standard text-secondary-600 text-b6">
+          <div className="text-2-line   text-secondary-600 text-b6">
             {description}
           </div>
         </div>
         <div className="w-1/4 flex justify-center items-end">
-          <div className="text-h2 font-standard text-white">
+          <div className="text-h2   text-white">
             {value}
             {parameter === 'PERCENTAGE' ? '%' : ''}
           </div>
@@ -62,11 +62,11 @@ export const Coupon: React.FC<CouponProps> = (props) => {
       </div>
       <div className="bg-gray-100 flex absolute size-6 rounded-full top-2/3 left-[-13px]" />
       <div className="bg-gray-100 flex absolute size-6 rounded-full top-2/3 right-[-13px]" />
-      <div className="text-secondary-600 font-standard text-b6 absolute bottom-2 left-4">
+      <div className="text-secondary-600   text-b6 absolute bottom-2 left-4">
         Expire date: {day(expireDate).format('YYYY MM DD')}
       </div>
       {isSelected && (
-        <div className="text-secondary-default bg-white rounded-3xl px-4 py-1 font-standard text-t5 absolute bottom-2 right-6">
+        <div className="text-secondary-default bg-white rounded-3xl px-4 py-1   text-t5 absolute bottom-2 right-6">
           Selected
         </div>
       )}
