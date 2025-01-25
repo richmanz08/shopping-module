@@ -1,5 +1,5 @@
 import { RootState } from '@/redux/store'
-import { ICampaignDiscountData } from '@/services/product/campagin-list'
+import { ICampaignDiscountData } from '@/services/product/campaign-list'
 import { map } from 'lodash'
 import { PlaytoriumIcon } from 'public/icons'
 import React from 'react'

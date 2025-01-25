@@ -9,7 +9,7 @@ import {
 } from '@/common/function/function'
 import { find, get, map } from 'lodash'
 import { PhotoIcon } from '@heroicons/react/24/outline'
-import { ICampaignDiscountData } from '@/services/product/campagin-list'
+import { ICampaignDiscountData } from '@/services/product/campaign-list'
 
 interface ProductCardProps {
   item: IProductData

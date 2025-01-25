@@ -1,4 +1,4 @@
-import { ICampaignDiscountData } from '@/services/product/campagin-list'
+import { ICampaignDiscountData } from '@/services/product/campaign-list'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface CartsState {

@@ -114,11 +114,11 @@ export const useCartHooks = () => {
     // release after discount from promotion
     releaseAmount -= promotionDiscount.onTop + promotionDiscount.point
 
-    // release after discount special campaign
     const specialDiscount = calDiscountSpecialCampaign(
       releaseAmount,
       data.specialCampaign,
     )
+    // release after discount special campaign
     releaseAmount -= specialDiscount
 
     const res: ICalculatePaymentFnOut = {

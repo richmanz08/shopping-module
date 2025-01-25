@@ -11,7 +11,7 @@ interface CouponProps {
   value: number
   isSelected: boolean
   onClick: () => void
-  isBlur: Boolean
+  isBlur: boolean
 }
 
 export const Coupon: React.FC<CouponProps> = (props) => {

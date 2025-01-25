@@ -1,4 +1,4 @@
-import { ICampaignDiscountData } from '@/services/product/campagin-list'
+import { ICampaignDiscountData } from '@/services/product/campaign-list'
 import { IProductData } from '@/services/product/product-list'
 
 export interface HomeComponentProps {}

@@ -2,7 +2,7 @@
 import HomeComponent from '@/components/home/home'
 import { loadCampaigns } from '@/redux/campaign.store'
 import { AppDispatch } from '@/redux/store'
-import { getCampaignList } from '@/services/product/campagin-list'
+import { getCampaignList } from '@/services/product/campaign-list'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
