@@ -4,11 +4,13 @@ import React from 'react'
 interface CounterProps {
   value: number
   onChange: (value: number) => void
+  onIncrease?: () => void
+  onDecrease?: () => void
   limit: number
 }
 
 export const Counter: React.FC<CounterProps> = (props) => {
-  const { value, limit, onChange } = props
+  const { value, limit, onChange, onIncrease, onDecrease } = props
 
   return (
     <div className="flex items-center gap-4">
@@ -16,6 +18,8 @@ export const Counter: React.FC<CounterProps> = (props) => {
         disabled={value === limit}
         className="shadow-md rounded-full p-3 disabled:cursor-not-allowed"
         onClick={function () {
+          if (onIncrease) onIncrease()
+
           if (value < limit) onChange(value + 1)
         }}
       >
@@ -27,6 +31,8 @@ export const Counter: React.FC<CounterProps> = (props) => {
         disabled={value === 0}
         className="shadow-md rounded-full p-3 disabled:cursor-not-allowed disabled:text-secondary-300"
         onClick={function () {
+          if (onDecrease) onDecrease()
+
           if (value > 0) onChange(value - 1)
         }}
       >

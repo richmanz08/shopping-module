@@ -1,7 +1,7 @@
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, RootState } from '@/redux/store'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/store'
 import { map } from 'lodash'
 import {
   formatMoney,
@@ -10,12 +10,19 @@ import {
 } from '@/common/function/function'
 
 import { useCartHooks } from './hooks'
+import { Counter } from '@/common/components/counter/counter'
+import { ModalDeleteProduct } from './modalDelete'
 
 interface CartTableProps {}
 
 export const CartTable: React.FC<CartTableProps> = (props) => {
-  const { removeItemInCart } = useCartHooks()
+  const { removeItemInCart, addProductOnCart, removeProductOnCart } =
+    useCartHooks()
   const myCarts = useSelector((state: RootState) => state.carts.carts)
+  const [modalDeleteProduct, setModalDeleteProduct] = useState({
+    open: false,
+    id: '',
+  })
 
   return (
     <div>
@@ -57,7 +64,24 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
                     </div>
                   </td>
                   <td className="px-4 py-3 text-center">
-                    <div className="  text-a5">{i.amount}</div>
+                    <Counter
+                      value={i.amount}
+                      limit={i.product.total_unit ?? 0}
+                      onChange={function () {}}
+                      onDecrease={function () {
+                        if (i.amount === 1) {
+                          setModalDeleteProduct({
+                            open: true,
+                            id: i.product.id,
+                          })
+                          return
+                        }
+                        removeProductOnCart(i.product.id)
+                      }}
+                      onIncrease={function () {
+                        addProductOnCart(i.product.id)
+                      }}
+                    />
                   </td>
                   <td className="px-4 py-3 text-center">
                     {formatMoney(i.amount * i.product.price)}
@@ -65,7 +89,10 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
                   <td className="px-4 py-3 text-right">
                     <XMarkIcon
                       onClick={function () {
-                        removeItemInCart(i)
+                        setModalDeleteProduct({
+                          open: true,
+                          id: i.product.id,
+                        })
                       }}
                       className="size-7 cursor-pointer"
                     />
@@ -76,6 +103,16 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
           </tbody>
         </table>
       </div>
+      <ModalDeleteProduct
+        open={modalDeleteProduct.open}
+        onOk={function () {
+          removeItemInCart(modalDeleteProduct.id)
+          setModalDeleteProduct({ open: false, id: '' })
+        }}
+        onCancel={function () {
+          setModalDeleteProduct({ open: false, id: '' })
+        }}
+      />
     </div>
   )
 }

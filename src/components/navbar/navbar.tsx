@@ -54,7 +54,7 @@ const NavbarComponent: React.FC<NavbarComponentProps> = () => {
               router.push('/')
             }}
           >
-            <div>My Shopping</div>
+            <div>Playtorium Shopping</div>
           </button>
         </div>
 

@@ -106,7 +106,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
         )}
       </div>
       {total_unit < 1 && (
-        <div className="border border-4 border-outline-bg opacity-55 absolute top-[30px] left-[-128px] px-3 py-2 text-h5 text-secondary-700 w-96 -rotate-45 spacei">
+        <div className="border-4 border-outline-bg opacity-55 absolute top-[30px] left-[-128px] px-3 py-2 text-h5 text-secondary-700 w-96 -rotate-45 spacei">
           SOLD OUT
         </div>
       )}

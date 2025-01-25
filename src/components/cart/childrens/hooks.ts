@@ -138,11 +138,40 @@ export const useCartHooks = () => {
     return res
   }
 
-  function removeItemInCart(item: ICartData) {
+  function removeItemInCart(id: string) {
     const newCarts = filter(carts, function (i) {
-      return i.product.id !== item.product.id
+      return i.product.id !== id
     })
     dispatch(updateCart(newCarts))
   }
-  return { calculatePayment, removeItemInCart }
+
+  function addProductOnCart(id: string) {
+    const newCart = map(carts, function (i) {
+      return {
+        ...i,
+        ...(i.product.id === id && {
+          amount: i.amount + 1,
+        }),
+      }
+    })
+    dispatch(updateCart(newCart))
+  }
+
+  function removeProductOnCart(id: string) {
+    const newCart = map(carts, function (i) {
+      return {
+        ...i,
+        ...(i.product.id === id && {
+          amount: i.amount - 1,
+        }),
+      }
+    })
+    dispatch(updateCart(newCart))
+  }
+  return {
+    calculatePayment,
+    removeItemInCart,
+    addProductOnCart,
+    removeProductOnCart,
+  }
 }
