@@ -8,9 +8,6 @@ export default {
   ],
   theme: {
     extend: {
-      // fontFamily: {
-      //   standard: ['Figtree', 'sans-serif'],
-      // },
       fontSize: {
         h1: ['44px', { lineHeight: '54px', fontWeight: '900' }],
         h2: ['32px', { lineHeight: '48px', fontWeight: '900' }],

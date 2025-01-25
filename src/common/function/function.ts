@@ -1,7 +1,7 @@
 export function formatMoney(value: number) {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'decimal',
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 0,
     maximumFractionDigits: 2,
   })
   return formatter.format(value)
@@ -19,6 +19,8 @@ export function productCategoryMap(str: string) {
       return 'Gaming'
     case 'SPORT':
       return 'Sport'
+    case 'TOY':
+      return 'Toy'
     default:
       return 'Unknown category'
   }
@@ -36,6 +38,8 @@ export function productTypeMap(str: string) {
       return 'Cap'
     case 'PANT':
       return 'Pant'
+    case 'KEY_CHAIN':
+      return 'Key chain'
     default:
       return 'Unknown product type'
   }

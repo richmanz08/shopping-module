@@ -1,21 +1,140 @@
 import { AppDispatch, RootState } from '@/redux/store'
-import { map, sumBy } from 'lodash'
+import { filter, find, isNumber, map, sumBy } from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
+import {
+  ICalculatePaymentFnIn,
+  ICalculatePaymentFnOut,
+} from '../cart.interface'
+import { ICartData, updateCart } from '@/redux/cart.store'
 
 export const useCartHooks = () => {
   const dispatch = useDispatch<AppDispatch>()
   const carts = useSelector((state: RootState) => state.carts.carts)
+  const campaigns = useSelector((state: RootState) => state.campaigns.campaigns)
 
-  function onCheckOut() {
+  function sumAllProduct() {
     const sumByProduct = map(carts, function (i) {
       return {
         ...i,
         totalPrice: i.amount * i.product.price,
       }
     })
-    // Sum up the totalPrice for each item in the sumByProduct array
-    const total = sumBy(sumByProduct, 'totalPrice')
-    console.log({ sumByProduct, total })
+
+    return sumBy(sumByProduct, 'totalPrice')
   }
-  return { onCheckOut }
+
+  function sumUnitProducts() {
+    return sumBy(carts, 'amount')
+  }
+
+  function calDiscountCoupon(subtotal_amount: number, code: string) {
+    const findCoupon = find(campaigns, function (f) {
+      return f.type === code
+    })
+    if (!findCoupon) return 0
+
+    if (findCoupon.parameter === 'AMOUNT') {
+      return findCoupon.amount
+    } else if (findCoupon.parameter === 'PERCENTAGE') {
+      return (subtotal_amount * findCoupon.amount) / 100
+    }
+    return 0
+  }
+
+  function calDiscountPromotion(
+    subtotal_amount: number,
+    code: string,
+    point: number,
+  ): { onTop: number; point: number } {
+    const initialValue = { onTop: 0, point: 0 }
+    const findPromotion = find(campaigns, function (f) {
+      return f.type === code
+    })
+
+    if (!findPromotion) return initialValue
+
+    if (findPromotion.type === 'PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY') {
+      // to do
+      return initialValue
+    } else if (
+      findPromotion.type === 'DISCOUNT_BY_POINT' &&
+      isNumber(findPromotion.max)
+    ) {
+      /*
+       limit 20% of total price
+       */
+      const maxDiscount = (subtotal_amount * findPromotion.max) / 100
+      return { onTop: 0, point: point > maxDiscount ? maxDiscount : point }
+    }
+    return initialValue
+  }
+
+  function calDiscountSpecialCampaign(
+    amount: number,
+    isUseSpecialCampaign: boolean,
+  ) {
+    if (!isUseSpecialCampaign) return 0
+    const findSpecialCampaign = find(campaigns, function (f) {
+      return f.type === 'SPECIAL_CAMPAIGNS'
+    })
+
+    if (!findSpecialCampaign) return 0
+
+    if (findSpecialCampaign && isNumber(findSpecialCampaign.max)) {
+      return (
+        Math.floor(amount / findSpecialCampaign.max) *
+        findSpecialCampaign.amount
+      )
+    }
+
+    return 0
+  }
+
+  function calculatePayment(
+    data: ICalculatePaymentFnIn,
+  ): ICalculatePaymentFnOut {
+    //Ex: coupon > on top > special
+    let releaseAmount = 0
+    const subtotalAmount = sumAllProduct()
+    const couponDiscount = calDiscountCoupon(subtotalAmount, data.couponCode)
+
+    // release after discount from coupon
+    releaseAmount = subtotalAmount - couponDiscount
+    const promotionDiscount = calDiscountPromotion(
+      releaseAmount,
+      data.promotionCode,
+      data.point,
+    )
+
+    // release after discount from promotion
+    releaseAmount -= promotionDiscount.onTop + promotionDiscount.point
+
+    // release after discount special campaign
+    const specialDiscount = calDiscountSpecialCampaign(
+      releaseAmount,
+      data.specialCampaign,
+    )
+    releaseAmount -= specialDiscount
+
+    const res: ICalculatePaymentFnOut = {
+      subtotal_unit: sumUnitProducts(),
+      subtotal_amount: subtotalAmount,
+      discount_coupon: couponDiscount,
+      discount_promotion_on_top: promotionDiscount.onTop,
+      discount_promotion_point: promotionDiscount.point,
+      discount_special_campaign: specialDiscount,
+      total_discount:
+        couponDiscount + promotionDiscount.onTop + promotionDiscount.point,
+      total: releaseAmount,
+    }
+    return res
+  }
+
+  function removeItemInCart(item: ICartData) {
+    const newCarts = filter(carts, function (i) {
+      return i.product.id !== item.product.id
+    })
+    dispatch(updateCart(newCarts))
+  }
+  return { calculatePayment, removeItemInCart }
 }

@@ -1,7 +1,7 @@
 import { IProductData } from '@/services/product/product-list'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface ICartData {
+export interface ICartData {
   product: IProductData
   amount: number
 }

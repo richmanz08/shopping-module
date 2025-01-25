@@ -9,12 +9,14 @@ import { useSelector } from 'react-redux'
 interface CheckboxPromotionProps {
   list: ICampaignDiscountData[]
   activeKey: string
+  // defaultPoint: number
+  // maxPoint: number
   onChange: (code: string) => void
-  onPointChange: (value: number) => void
+  // onPointChange: (value: number) => void
 }
 
 export const CheckboxPromotion: React.FC<CheckboxPromotionProps> = (props) => {
-  const { onChange, list, activeKey, onPointChange } = props
+  const { onChange, list, activeKey } = props
   const userInfo = useSelector((state: RootState) => state.user.user)
   const usePoint = userInfo.point
 
@@ -23,7 +25,7 @@ export const CheckboxPromotion: React.FC<CheckboxPromotionProps> = (props) => {
       case 'DISCOUNT_BY_POINT':
         return 'Use playtorium point for discount (1 point = 1 THB) max 20% of total price.'
       case 'PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY':
-        return 'Discount on participating products'
+        return 'Discount on participating products (Clothing, Accessories, Electronics)'
       default:
         return ''
     }
@@ -42,9 +44,6 @@ export const CheckboxPromotion: React.FC<CheckboxPromotionProps> = (props) => {
             } flex border-2 text-left px-4 py-2 w-full rounded-lg`}
             onClick={function () {
               onChange(isActive ? '' : i.type)
-              if (!isActive && isUsePoint) {
-                onPointChange(0)
-              }
             }}
           >
             {isUsePoint && (
@@ -56,21 +55,21 @@ export const CheckboxPromotion: React.FC<CheckboxPromotionProps> = (props) => {
               <div className="text-b6">{mapDescription(i.type)}</div>
               {isUsePoint && isActive && (
                 <div
-                  onClick={function (e) {
-                    e.stopPropagation()
-                  }}
+                // onClick={function (e) {
+                //   e.stopPropagation()
+                // }}
                 >
-                  <Slider
+                  {/* <Slider
                     min={0}
-                    max={usePoint ?? 0}
-                    defaultValue={usePoint > 1 ? (usePoint ?? 0) / 2 : usePoint}
+                    max={maxPoint ?? usePoint}
+                    defaultValue={defaultPoint}
                     onChange={function (value) {
                       onPointChange(value)
                     }}
                     style={{ marginBottom: 0 }}
-                  />
+                  /> */}
                   <div className="text-primary-default text-b7">
-                    You have {usePoint ?? 0} point
+                    You have {usePoint} point
                   </div>
                 </div>
               )}

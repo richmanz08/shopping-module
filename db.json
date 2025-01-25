@@ -138,6 +138,18 @@
       "price": 36900,
       "rate": 2,
       "total_unit": 99
+    },
+    {
+      "id": "TOY001",
+      "image": [
+        "https://prod-eurasian-res.popmart.com/default/20230928_102611_967711__1200x1200.jpg"
+      ],
+      "name": "PUCKY Forest Party Series-Vinyl Plush Pendant Blind Box",
+      "product_category_type": "TOY",
+      "product_type": "KEY_CHAIN",
+      "price": 590,
+      "rate": 3,
+      "total_unit": 13
     }
   ],
   "campaigns": [
@@ -166,7 +178,11 @@
       "type": "PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY",
       "parameter": "PERCENTAGE",
       "category": "ON_TOP",
-      "accept_product_category": ["CLOTHING", "ACCESSORIES", "ELECTRONICS"],
+      "accept_product_category": [
+        "CLOTHING",
+        "ACCESSORIES",
+        "ELECTRONICS"
+      ],
       "amount": 15,
       "max": null,
       "description": "Discount the entire amount of a specif category of items in cart"
@@ -188,7 +204,7 @@
       "category": "SEASONAL",
       "accept_product_category": [],
       "amount": 40,
-      "max": null,
+      "max": 300,
       "description": "From the total price, at every X THB, subtracting a fixed amount Y THB"
     }
   ],
@@ -196,6 +212,6 @@
     "id": 1,
     "name": "Mr.arnon",
     "mail": "arnonrungrueng08@gmail.com",
-    "point": 30
+    "point": 1200
   }
 }

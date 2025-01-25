@@ -10,7 +10,8 @@ export type ProduceCateGoryType =
   | 'ELECTRONICS'
   | 'GAMING'
   | 'SPORT'
-export type ProductType = 'T-SHIRT' | 'PHONE' | 'TABLET' | 'CAP'
+  | 'TOY'
+export type ProductType = 'T-SHIRT' | 'PHONE' | 'TABLET' | 'CAP' | 'KEY_CHAIN'
 
 export interface IProductData {
   id: string

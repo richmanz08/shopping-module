@@ -1,52 +1,31 @@
-import { UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/redux/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '@/redux/store'
 import { map } from 'lodash'
 import {
   formatMoney,
   productCategoryMap,
   productTypeMap,
 } from '@/common/function/function'
-import { Counter } from '@/components/counter/counter'
-import { Breadcrumb } from 'antd'
-import { HomeIcon } from '@heroicons/react/16/solid'
+
+import { useCartHooks } from './hooks'
 
 interface CartTableProps {}
 
 export const CartTable: React.FC<CartTableProps> = (props) => {
+  const { removeItemInCart } = useCartHooks()
   const myCarts = useSelector((state: RootState) => state.carts.carts)
+
   return (
     <div>
-      {/* <div className="text-h2  ">Shopping Cart.</div> */}
-      {/* <Breadcrumb
-        items={[
-          {
-            href: '',
-            title: <HomeIcon className="size-4" />,
-          },
-          {
-            href: '',
-
-            title: (
-              <div className="flex items-center">
-                <UserCircleIcon className="size-4" />
-                <span>Application List</span>
-              </div>
-            ),
-          },
-          {
-            title: 'Application',
-          },
-        ]}
-      /> */}
       <div className="overflow-x-auto mt-6">
         <table className="min-w-full table-auto">
           <thead>
             <tr className="">
-              <th className="px-4 py-2 text-left   max-w-8">Product</th>
-              <th className="px-4 py-2 text-left  ">Quantity</th>
-              <th className="px-4 py-2 text-left   whitespace-nowrap">
+              <th className="px-4 py-2 text-left max-w-8">Product</th>
+              <th className="px-4 py-2 text-left">Quantity</th>
+              <th className="px-4 py-2 text-left whitespace-nowrap">
                 Total Price
               </th>
               <th className="px-4 py-2 text-left  "> </th>
@@ -84,7 +63,12 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
                     {formatMoney(i.amount * i.product.price)}
                   </td>
                   <td className="px-4 py-3 text-right">
-                    <XMarkIcon className="size-7 cursor-pointer" />
+                    <XMarkIcon
+                      onClick={function () {
+                        removeItemInCart(i)
+                      }}
+                      className="size-7 cursor-pointer"
+                    />
                   </td>
                 </tr>
               )

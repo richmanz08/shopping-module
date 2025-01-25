@@ -1,6 +1,5 @@
 'use client'
 
-import { Figtree } from 'next/font/google'
 import './globals.css'
 import 'antd/dist/reset.css'
 import '@ant-design/v5-patch-for-react-19'
@@ -16,7 +15,6 @@ const queryClient = new QueryClient({
       retry: 2, // Retry failed requests 2 times
       refetchOnWindowFocus: false, // Disable refetch on window focus
       staleTime: 1000 * 60 * 5, // Data is considered fresh for 5 minutes
-      // cacheTime: 1000 * 60 * 30, // Cached data will expire after 30 minutes
     },
     mutations: {
       onError: (error) => {
@@ -26,11 +24,6 @@ const queryClient = new QueryClient({
   },
 })
 
-const figTree = Figtree({
-  variable: '--font-figtree',
-  subsets: ['latin'],
-})
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,7 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${figTree.variable} antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        ></link>
+      </head>
+      <body className="antialiased">
         <Provider store={store}>
           <QueryClientProvider client={queryClient}>
             <NavbarComponent />
