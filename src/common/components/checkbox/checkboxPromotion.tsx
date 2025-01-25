@@ -1,6 +1,5 @@
 import { RootState } from '@/redux/store'
 import { ICampaignDiscountData } from '@/services/product/campagin-list'
-import { Slider } from 'antd'
 import { map } from 'lodash'
 import { PlaytoriumIcon } from 'public/icons'
 import React from 'react'
@@ -9,10 +8,8 @@ import { useSelector } from 'react-redux'
 interface CheckboxPromotionProps {
   list: ICampaignDiscountData[]
   activeKey: string
-  // defaultPoint: number
-  // maxPoint: number
+
   onChange: (code: string) => void
-  // onPointChange: (value: number) => void
 }
 
 export const CheckboxPromotion: React.FC<CheckboxPromotionProps> = (props) => {
@@ -20,12 +17,12 @@ export const CheckboxPromotion: React.FC<CheckboxPromotionProps> = (props) => {
   const userInfo = useSelector((state: RootState) => state.user.user)
   const usePoint = userInfo.point
 
-  function mapDescription(code: string) {
-    switch (code) {
+  function mapDescription(i: ICampaignDiscountData) {
+    switch (i.type) {
       case 'DISCOUNT_BY_POINT':
-        return 'Use playtorium point for discount (1 point = 1 THB) max 20% of total price.'
+        return `Use playtorium point for discount (1 point = ${i.amount} THB) max ${i.max}% of total price.`
       case 'PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY':
-        return 'Discount on participating products (Clothing, Accessories, Electronics)'
+        return `Discount on participating products ${i.amount}% (Clothing, Accessories, Electronics)`
       default:
         return ''
     }
@@ -52,22 +49,9 @@ export const CheckboxPromotion: React.FC<CheckboxPromotionProps> = (props) => {
               </div>
             )}
             <div className="flex flex-col">
-              <div className="text-b6">{mapDescription(i.type)}</div>
+              <div className="text-b6">{mapDescription(i)}</div>
               {isUsePoint && isActive && (
-                <div
-                // onClick={function (e) {
-                //   e.stopPropagation()
-                // }}
-                >
-                  {/* <Slider
-                    min={0}
-                    max={maxPoint ?? usePoint}
-                    defaultValue={defaultPoint}
-                    onChange={function (value) {
-                      onPointChange(value)
-                    }}
-                    style={{ marginBottom: 0 }}
-                  /> */}
+                <div>
                   <div className="text-primary-default text-b7">
                     You have {usePoint} point
                   </div>

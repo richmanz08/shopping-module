@@ -1,7 +1,7 @@
-import { Button } from '@/components/button/button'
+import { Button } from '@/common/components/button/button'
 import React, { useEffect, useState } from 'react'
 import { IProductData } from '@/services/product/product-list'
-import { Counter } from '@/components/counter/counter'
+import { Counter } from '@/common/components/counter/counter'
 import { Carousel } from 'antd'
 import { map } from 'lodash'
 

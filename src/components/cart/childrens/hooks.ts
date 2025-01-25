@@ -12,8 +12,8 @@ export const useCartHooks = () => {
   const carts = useSelector((state: RootState) => state.carts.carts)
   const campaigns = useSelector((state: RootState) => state.campaigns.campaigns)
 
-  function sumAllProduct() {
-    const sumByProduct = map(carts, function (i) {
+  function sumAllProduct(cartList: ICartData[]) {
+    const sumByProduct = map(cartList, function (i) {
       return {
         ...i,
         totalPrice: i.amount * i.product.price,
@@ -54,8 +54,13 @@ export const useCartHooks = () => {
     if (!findPromotion) return initialValue
 
     if (findPromotion.type === 'PERCENTAGE_DISCOUNT_BY_ITEM_CATEGORY') {
-      // to do
-      return initialValue
+      const acceptCategories = findPromotion.accept_product_category
+      const cartList = filter(carts, function (i) {
+        return acceptCategories.includes(i.product.product_category_type)
+      })
+      const sumList = sumAllProduct(cartList)
+
+      return { onTop: (sumList * findPromotion.amount) / 100, point: 0 }
     } else if (
       findPromotion.type === 'DISCOUNT_BY_POINT' &&
       isNumber(findPromotion.max)
@@ -95,7 +100,7 @@ export const useCartHooks = () => {
   ): ICalculatePaymentFnOut {
     //Ex: coupon > on top > special
     let releaseAmount = 0
-    const subtotalAmount = sumAllProduct()
+    const subtotalAmount = sumAllProduct(carts)
     const couponDiscount = calDiscountCoupon(subtotalAmount, data.couponCode)
 
     // release after discount from coupon
@@ -124,7 +129,10 @@ export const useCartHooks = () => {
       discount_promotion_point: promotionDiscount.point,
       discount_special_campaign: specialDiscount,
       total_discount:
-        couponDiscount + promotionDiscount.onTop + promotionDiscount.point,
+        couponDiscount +
+        promotionDiscount.onTop +
+        promotionDiscount.point +
+        specialDiscount,
       total: releaseAmount,
     }
     return res

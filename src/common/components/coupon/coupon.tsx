@@ -58,7 +58,7 @@ export const Coupon: React.FC<CouponProps> = (props) => {
       </div>
       <div className="text-secondary-400 whitespace-nowrap top-2/3 absolute">
         - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        -
+        - - - - - - - - - - - -
       </div>
       <div className="bg-gray-100 flex absolute size-6 rounded-full top-2/3 left-[-13px]" />
       <div className="bg-gray-100 flex absolute size-6 rounded-full top-2/3 right-[-13px]" />

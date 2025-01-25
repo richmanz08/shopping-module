@@ -1,20 +1,24 @@
-import { Button } from '@/components/button/button'
-import React, { useEffect, useMemo, useState } from 'react'
+import { Button } from '@/common/components/button/button'
+import React, { useMemo, useState } from 'react'
 import { useCartHooks } from './hooks'
-import { Coupon } from '@/components/coupon/coupon'
-import { useSelector } from 'react-redux'
+import { Coupon } from '@/common/components/coupon/coupon'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/redux/store'
 import { filter, map } from 'lodash'
-import { CheckboxPromotion } from '@/components/checkbox/checkboxPromotion'
+import { CheckboxPromotion } from '@/common/components/checkbox/checkboxPromotion'
 import { Switch } from 'antd'
 import { ModalPaymentSuccess } from './modalConfirm'
 import { formatMoney } from '@/common/function/function'
+import { updateCart } from '@/redux/cart.store'
+import { useRouter } from 'next/navigation'
 
 interface PaymentProps {}
 
 export const Payment: React.FC<PaymentProps> = (props) => {
+  const router = useRouter()
   const { calculatePayment } = useCartHooks()
 
+  const dispatch = useDispatch<AppDispatch>()
   const carts = useSelector((state: RootState) => state.carts.carts)
   const campaigns = useSelector((state: RootState) => state.campaigns.campaigns)
   const userInfo = useSelector((state: RootState) => state.user.user)
@@ -46,7 +50,7 @@ export const Payment: React.FC<PaymentProps> = (props) => {
     })
   }, [userInfo, specialChecked, onTopCode, couponCode, carts])
 
-  console.log({ calculate })
+  const displayDiscount = onTopCode !== ''
 
   return (
     <div className="shadow-xl rounded-lg p-4 min-h-[400px] flex flex-col justify-between">
@@ -91,9 +95,6 @@ export const Payment: React.FC<PaymentProps> = (props) => {
           onChange={function (newValue) {
             setOnTopCode(newValue)
           }}
-          // onPointChange={function (value) {
-          //   setUsePoint(value)
-          // }}
         />
         <div className="border-[0.5px] border-outline-grey my-4" />
         <div className="text-t4  ">Special campaign</div>
@@ -116,7 +117,7 @@ export const Payment: React.FC<PaymentProps> = (props) => {
             {formatMoney(calculate.subtotal_amount)}
           </div>
         </div>
-        {calculate.discount_coupon >= 1 && (
+        {couponCode !== '' && (
           <div className="flex justify-between items-center">
             <div className="text-secondary-700 text-b6  ">
               Discount from coupon
@@ -126,31 +127,30 @@ export const Payment: React.FC<PaymentProps> = (props) => {
             </div>
           </div>
         )}
-        {calculate.discount_promotion_on_top >= 1 ||
-          (calculate.discount_promotion_point >= 1 && (
-            <div className="flex justify-between items-center">
-              {onTopCode === 'DISCOUNT_BY_POINT' ? (
-                <>
-                  <div className="text-secondary-700 text-b6  ">
-                    Discount from playtorium point
-                  </div>
-                  <div className="text-warm-300 text-b6">
-                    - {formatMoney(calculate.discount_promotion_point)}
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="text-secondary-700 text-b6  ">
-                    Discount from promotion on top
-                  </div>
-                  <div className="text-warm-300   text-b6">
-                    - {formatMoney(calculate.discount_promotion_on_top)}
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
-        {calculate.discount_special_campaign >= 1 && (
+        {displayDiscount && (
+          <div className="flex justify-between items-center">
+            {onTopCode === 'DISCOUNT_BY_POINT' ? (
+              <>
+                <div className="text-secondary-700 text-b6  ">
+                  Discount from playtorium point
+                </div>
+                <div className="text-warm-300 text-b6">
+                  - {formatMoney(calculate.discount_promotion_point)}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="text-secondary-700 text-b6  ">
+                  Discount from promotion on top
+                </div>
+                <div className="text-warm-300   text-b6">
+                  - {formatMoney(calculate.discount_promotion_on_top)}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+        {specialChecked && (
           <div className="flex justify-between items-center">
             <div className="text-secondary-700 text-b6  ">
               Discount from special campaign
@@ -182,14 +182,16 @@ export const Payment: React.FC<PaymentProps> = (props) => {
         buttonText="Check Out"
         type="primary"
         onClick={function () {
-          // onCheckOut()
           setOpenModalSuccess(true)
         }}
       />
       <ModalPaymentSuccess
         open={openModalSuccess}
+        calculate={calculate}
         onOk={function () {
+          dispatch(updateCart([]))
           setOpenModalSuccess(false)
+          router.push('/')
         }}
       />
     </div>

@@ -4,7 +4,7 @@ import { Payment } from './childrens/payment'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/redux/store'
 import { size } from 'lodash'
-import { Button } from '../button/button'
+import { Button } from '../../common/components/button/button'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/navigation'
 

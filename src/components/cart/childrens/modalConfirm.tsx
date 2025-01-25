@@ -1,13 +1,17 @@
-import { Button } from '@/components/button/button'
+import { Button } from '@/common/components/button/button'
 import React from 'react'
+import { ICalculatePaymentFnOut } from '../cart.interface'
+import { formatMoney } from '@/common/function/function'
 
 interface ModalPaymentSuccessProps {
   open: boolean
+  calculate: ICalculatePaymentFnOut
   onOk: () => void
 }
 
 export const ModalPaymentSuccess: React.FC<ModalPaymentSuccessProps> = ({
   open,
+  calculate,
   onOk,
 }) => {
   return (
@@ -32,6 +36,12 @@ export const ModalPaymentSuccess: React.FC<ModalPaymentSuccessProps> = ({
                 Your order has been recorded. Once the seller receives it, they
                 will verify and process the order based on the address you have
                 provided.
+              </div>
+              <div className="flex justify-between items-center border-t-[0.5px] mt-4 pt-2 border-outline-grey">
+                <div className="text-secondary-default text-t5  ">Total</div>
+                <div className="text-secondary-default   text-t4">
+                  {formatMoney(calculate.total)} THB
+                </div>
               </div>
             </div>
             <div className="px-4 py-4 sm:flex sm:flex-row-reverse">
