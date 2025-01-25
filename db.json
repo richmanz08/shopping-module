@@ -11,7 +11,8 @@
       "product_type": "T-SHIRT",
       "price": 550,
       "rate": 4,
-      "total_unit": 20
+      "total_unit": 20,
+      "create_at": "2025-01-01"
     },
     {
       "id": "HBTS002",
@@ -24,7 +25,8 @@
       "product_type": "T-SHIRT",
       "price": 590,
       "rate": 5,
-      "total_unit": 25
+      "total_unit": 25,
+      "create_at": "2024-01-01"
     },
     {
       "id": "CAP001",
@@ -37,7 +39,8 @@
       "product_type": "CAP",
       "price": 590,
       "rate": 4,
-      "total_unit": 400
+      "total_unit": 400,
+      "create_at": "2025-01-01"
     },
     {
       "id": "CAP002",
@@ -50,7 +53,8 @@
       "product_type": "CAP",
       "price": 590,
       "rate": 4,
-      "total_unit": 200
+      "total_unit": 200,
+      "create_at": "2024-01-01"
     },
     {
       "id": "HBTS003",
@@ -63,7 +67,8 @@
       "product_type": "PANT",
       "price": 890,
       "rate": 1,
-      "total_unit": 20
+      "total_unit": 20,
+      "create_at": "2024-01-01"
     },
     {
       "id": "HBTS004",
@@ -76,7 +81,8 @@
       "product_type": "PANT",
       "price": 890,
       "rate": 5,
-      "total_unit": 0
+      "total_unit": 0,
+      "create_at": "2024-01-01"
     },
     {
       "id": "PHONE001",
@@ -88,7 +94,8 @@
       "product_type": "PHONE",
       "price": 32200,
       "rate": 5,
-      "total_unit": 100
+      "total_unit": 100,
+      "create_at": "2024-01-01"
     },
     {
       "id": "PHONE002",
@@ -101,7 +108,8 @@
       "product_type": "PHONE",
       "price": 24500,
       "rate": 2,
-      "total_unit": 99
+      "total_unit": 99,
+      "create_at": "2024-01-01"
     },
     {
       "id": "PHONE003",
@@ -113,7 +121,8 @@
       "product_type": "PHONE",
       "price": 26590,
       "rate": 2,
-      "total_unit": 99
+      "total_unit": 99,
+      "create_at": "2024-01-01"
     },
     {
       "id": "TAB001",
@@ -125,7 +134,8 @@
       "product_type": "TABLET",
       "price": 17900,
       "rate": 2,
-      "total_unit": 99
+      "total_unit": 99,
+      "create_at": "2024-01-01"
     },
     {
       "id": "TAB002",
@@ -137,7 +147,8 @@
       "product_type": "TABLET",
       "price": 36900,
       "rate": 2,
-      "total_unit": 99
+      "total_unit": 99,
+      "create_at": "2024-01-01"
     },
     {
       "id": "TOY001",
@@ -149,7 +160,8 @@
       "product_type": "KEY_CHAIN",
       "price": 590,
       "rate": 3,
-      "total_unit": 13
+      "total_unit": 13,
+      "create_at": "2024-01-01"
     }
   ],
   "campaigns": [
@@ -169,7 +181,7 @@
       "parameter": "PERCENTAGE",
       "category": "COUPON",
       "accept_product_category": [],
-      "amount": 10,
+      "amount": 1,
       "max": null,
       "description": "Discounts the entire cart by subtracting a percentage from the total price"
     },
@@ -183,7 +195,7 @@
         "ACCESSORIES",
         "ELECTRONICS"
       ],
-      "amount": 15,
+      "amount": 3,
       "max": null,
       "description": "Discount the entire amount of a specif category of items in cart"
     },
@@ -203,7 +215,7 @@
       "parameter": "AMOUNT",
       "category": "SEASONAL",
       "accept_product_category": [],
-      "amount": 40,
+      "amount": 20,
       "max": 300,
       "description": "From the total price, at every X THB, subtracting a fixed amount Y THB"
     }

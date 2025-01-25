@@ -1,3 +1,5 @@
+import day from 'dayjs'
+
 export function formatMoney(value: number) {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'decimal',
@@ -43,4 +45,17 @@ export function productTypeMap(str: string) {
     default:
       return 'Unknown product type'
   }
+}
+
+export function checkIsNewRelease(date: string) {
+  const current = new Date()
+  const productDate = day(date).toDate()
+
+  if (current.getTime() < productDate.getTime()) return false
+
+  const timeDiff = current.getTime() - productDate.getTime()
+
+  const daysDifference = timeDiff / (1000 * 3600 * 24)
+
+  return daysDifference < 30
 }

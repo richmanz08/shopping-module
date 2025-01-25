@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         }
       }}
       type="button"
-      className={`w-32 disabled:bg-secondary-400   disabled:text-secondary-500 inline-flex text-a5 justify-center rounded-md px-3 py-2 shadow-xs ${
+      className={`w-32 disabled:bg-secondary-400 disabled:text-secondary-500 inline-flex text-a5 justify-center rounded-md px-3 py-2 shadow-xs ${
         includeStyle[type ?? 'primary']
       } ${className}`}
     >

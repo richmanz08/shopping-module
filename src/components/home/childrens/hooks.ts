@@ -11,6 +11,8 @@ export const useHomeHooks = () => {
   const initialModalViewProduct: IModalViewProductItem = {
     open: false,
     productItem: null,
+    promotion: null,
+    isNewRelease: false,
   }
 
   function onAddProductIntoCartStore(

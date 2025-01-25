@@ -5,12 +5,14 @@ export default {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/common/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       fontSize: {
         h1: ['44px', { lineHeight: '54px', fontWeight: '900' }],
         h2: ['32px', { lineHeight: '48px', fontWeight: '900' }],
+        h3: ['28px', { lineHeight: '40px', fontWeight: '700' }],
         h4: ['24px', { lineHeight: '36px', fontWeight: '700' }],
         h5: ['22px', { lineHeight: '30px', fontWeight: '700' }],
         h6: ['18px', { lineHeight: '26px', fontWeight: '700' }],
@@ -19,6 +21,8 @@ export default {
         t3: ['20px', { lineHeight: '30px', fontWeight: '600' }],
         t4: ['18px', { lineHeight: '28px', fontWeight: '600' }],
         t5: ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        t6: ['14px', { lineHeight: '20px', fontWeight: '600' }],
+        t7: ['12px', { lineHeight: '18px', fontWeight: '600' }],
         a2: ['22px', { lineHeight: '32px', fontWeight: '500' }],
         a3: ['20px', { lineHeight: '30px', fontWeight: '500' }],
         a4: ['18px', { lineHeight: '28px', fontWeight: '500' }],

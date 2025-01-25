@@ -22,6 +22,7 @@ export interface IProductData {
   price: number
   rate: number
   total_unit: number
+  create_at: string // YYYY-MM-DD
 }
 
 export const getProductList = () => {

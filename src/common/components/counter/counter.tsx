@@ -21,6 +21,7 @@ export const Counter: React.FC<CounterProps> = (props) => {
       >
         <PlusIcon className="size-6 text-secondary-default" />
       </button>
+
       <div className="text-t3">{value}</div>
       <button
         disabled={value === 0}
