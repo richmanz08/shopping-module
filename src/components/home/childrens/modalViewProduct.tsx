@@ -61,7 +61,7 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                           key={`product_img_${index + 1}`}
                           className="rounded-lg"
                         >
-                          <div className="text-center bg-primary-default m-0 rounded-lg">
+                          <div className="text-center m-0 rounded-lg">
                             <img
                               src={url}
                               alt={`${productItem?.name} no img`}
