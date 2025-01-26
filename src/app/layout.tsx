@@ -44,6 +44,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap"
           rel="stylesheet"
         ></link>
+        <link rel="icon" href="/icons/playtorium.svg" />
       </head>
       <body className="antialiased">
         <Provider store={store}>
