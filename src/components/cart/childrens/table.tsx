@@ -60,6 +60,9 @@ export const CartTable: React.FC<CartTableProps> = (props) => {
                           {', '}
                           {productTypeMap(i.product.product_type)}
                         </div>
+                        <div className="text-t6 text-secondary-default">
+                          {formatMoney(i.product.price)} THB
+                        </div>
                       </div>
                     </div>
                   </td>

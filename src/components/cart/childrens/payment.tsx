@@ -53,7 +53,7 @@ export const Payment: React.FC<PaymentProps> = (props) => {
   const displayDiscount = onTopCode !== ''
 
   return (
-    <div className="shadow-xl rounded-lg p-4 min-h-[400px] flex flex-col justify-between">
+    <div className="shadow-xl rounded-lg p-4 min-h-[400px] h-fit flex flex-col justify-between">
       <div>
         <div className="text-h2  ">Payment Info.</div>
         <div className="text-b5 mb-4">
