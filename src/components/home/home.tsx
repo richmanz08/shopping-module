@@ -7,8 +7,8 @@ import { HomeComponentProps } from './home.interface'
 const HomeComponent: React.FC<HomeComponentProps> = (props) => {
   const {} = props
   return (
-    <div className="flex flex-col w-full max-w-screen-xl justify-center px-8">
-      {/* <AdverTisePaper /> */}
+    <div className="flex flex-col w-full max-w-screen-xl justify-center px-8 relative">
+      <AdverTisePaper />
       <ProductList />
     </div>
   )

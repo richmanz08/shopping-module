@@ -38,6 +38,12 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         ></link>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap"
+          rel="stylesheet"
+        ></link>
       </head>
       <body className="antialiased">
         <Provider store={store}>

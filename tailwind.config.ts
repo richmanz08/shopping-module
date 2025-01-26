@@ -9,9 +9,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        playwrite: ['Playwrite IN', 'serif'],
+      },
       fontSize: {
         h1: ['44px', { lineHeight: '54px', fontWeight: '900' }],
-        h2: ['32px', { lineHeight: '48px', fontWeight: '900' }],
+        h2: ['32px', { lineHeight: '36px', fontWeight: '900' }],
         h3: ['28px', { lineHeight: '40px', fontWeight: '700' }],
         h4: ['24px', { lineHeight: '36px', fontWeight: '700' }],
         h5: ['22px', { lineHeight: '30px', fontWeight: '700' }],
@@ -69,6 +72,9 @@ export default {
           200: '#FE8248 ',
           300: '#FE4960',
         },
+      },
+      backgroundPosition: {
+        '120px': '120px -280px',
       },
     },
   },

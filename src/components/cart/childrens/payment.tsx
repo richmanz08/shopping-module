@@ -99,7 +99,7 @@ export const Payment: React.FC<PaymentProps> = (props) => {
         <div className="border-[0.5px] border-outline-grey my-4" />
         <div className="text-t4  ">Special campaign</div>
         <div className="text-b6 mb-4  ">
-          For every purchase of 300 THB, you will get a 40 THB discount.
+          For every purchase of 300 THB, you will get a 20 THB discount.
         </div>
         <Switch
           defaultChecked

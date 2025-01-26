@@ -1,5 +1,5 @@
 import { Button } from '@/common/components/button/button'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { IProductData } from '@/services/product/product-list'
 import { Counter } from '@/common/components/counter/counter'
 import { Carousel } from 'antd'
@@ -25,9 +25,15 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
   const [amount, setAmount] = useState(0)
 
   const isSoldOut = productItem?.total_unit === 0
+
   useEffect(() => {
     if (!open) setAmount(0)
   }, [open])
+
+  const soldPrice = useMemo(() => {
+    if (!promotion || !productItem) return 0
+    return productItem.price - (productItem.price * promotion.amount) / 100
+  }, [promotion, productItem])
 
   return (
     <div
@@ -91,10 +97,16 @@ export const ModalViewProduct: React.FC<ModalViewProductProps> = (props) => {
                           </div>
                         )}
                       </div>
-
-                      <div className="text-t2 text-left">
+                      <div
+                        className={`text-t2 text-left ${soldPrice > 0 && 'line-through text-a4 text-secondary-700'}`}
+                      >
                         {formatMoney(productItem?.price ?? 0)} THB
                       </div>
+                      {soldPrice > 0 && (
+                        <div className="text-t2 text-left">
+                          {formatMoney(soldPrice)} THB
+                        </div>
+                      )}
                     </div>
                   </div>
 

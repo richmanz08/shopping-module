@@ -39,7 +39,7 @@ export const ModalPaymentSuccess: React.FC<ModalPaymentSuccessProps> = ({
               </div>
               <div className="flex justify-between items-center border-t-[0.5px] mt-4 pt-2 border-outline-grey">
                 <div className="text-secondary-default text-t5  ">Total</div>
-                <div className="text-secondary-default   text-t4">
+                <div className="text-secondary-default text-t4">
                   {formatMoney(calculate.total)} THB
                 </div>
               </div>
