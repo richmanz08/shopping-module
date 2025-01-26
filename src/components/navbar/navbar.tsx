@@ -56,10 +56,10 @@ const NavbarComponent: React.FC<NavbarComponentProps> = () => {
   }, [userData])
 
   useEffect(() => {
-    const getToureLocalStore = localStorage.getItem('toure_display')
-    if (getToureLocalStore !== 'y') {
+    const getTourLocalStore = localStorage.getItem('tour_display')
+    if (getTourLocalStore !== 'y') {
       setOpen(true)
-      localStorage.setItem('toure_display', 'y')
+      localStorage.setItem('tour_display', 'y')
     }
   }, [])
 

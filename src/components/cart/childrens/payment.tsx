@@ -84,7 +84,7 @@ export const Payment: React.FC<PaymentProps> = (props) => {
             )
           })}
         </div>
-        <div className="bborder-[0.5px] border-outline-grey my-4" />
+        <div className="border-[0.5px] border-outline-grey my-4" />
         <div className="text-b5  mb-4  ">
           Choose to use a promotional discount or use playtorium points for a
           discount.

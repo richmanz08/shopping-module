@@ -162,6 +162,61 @@
       "rate": 3,
       "total_unit": 13,
       "create_at": "2024-01-01"
+    },
+    {
+      "id": "TOY002",
+      "image": [
+        "https://prod-america-res.popmart.com/default/05_KqVg7ppOYt_1200x1200.jpg",
+        "https://prod-america-res.popmart.com/default/06_sRN4WN5mYG_1200x1200.jpg"
+      ],
+      "name": "THE MONSTERS × Kow Yokoyama Ma.k. Series",
+      "product_category_type": "TOY",
+      "product_type": "KEY_CHAIN",
+      "price": 300,
+      "rate": 3,
+      "total_unit": 12,
+      "create_at": "2024-01-01"
+    },
+    {
+      "id": "TOY003",
+      "image": [
+        "https://prod-america-res.popmart.com/default/20231215_094938_799734__1200x1200.jpg",
+        "https://prod-america-res.popmart.com/default/20231215_094938_545842__1200x1200.jpg"
+      ],
+      "name": "THE MONSTERS - I FOUND YOU Vinyl Face Doll",
+      "product_category_type": "TOY",
+      "product_type": "KEY_CHAIN",
+      "price": 2500,
+      "rate": 5,
+      "total_unit": 12,
+      "create_at": "2025-01-01"
+    },
+    {
+      "id": "TOY004",
+      "image": [
+        "https://prod-america-res.popmart.com/default/20240703_182402_236712____the-monsters-flip-with-me-vinyl-plush-doll-plush-toys-pop-mart-us-1_____1200x1200.jpg",
+        "https://prod-america-res.popmart.com/default/20240703_182402_956934____the-monsters-flip-with-me-vinyl-plush-doll-plush-toys-pop-mart-us-scene_2_____1200x1200.jpg"
+      ],
+      "name": "THE MONSTERS - FLIP WITH ME Vinyl Plush Doll",
+      "product_category_type": "TOY",
+      "product_type": "KEY_CHAIN",
+      "price": 2000,
+      "rate": 3,
+      "total_unit": 12,
+      "create_at": "2024-01-01"
+    },
+    {
+      "id": "TOY005",
+      "image": [
+        "https://prod-america-res.popmart.com/default/16_GcTK8HOPPi_1200x1200.jpg"
+      ],
+      "name": "Kaiju Hunting Series 2.5 Series",
+      "product_category_type": "TOY",
+      "product_type": "KEY_CHAIN",
+      "price": 2000,
+      "rate": 3,
+      "total_unit": 0,
+      "create_at": "2024-01-01"
     }
   ],
   "campaigns": [
