@@ -35,6 +35,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
   } = item
 
   const [promotion, setPromotion] = useState<ICampaignDiscountData | null>(null)
+  const [isErrorLoadImage, setIsErrorLoadImage] = useState(false)
 
   const starArray = Array.from({ length: rate }, (_, index) => index + 1)
   const imageURL = get(image, '[0]', null)
@@ -59,11 +60,14 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       }}
     >
       <div className="w-full flex justify-center items-center">
-        {imageURL ? (
+        {imageURL && !isErrorLoadImage ? (
           <img
             src={imageURL}
             alt={`${name} no img`}
             className="w-full h-[240px] object-cover"
+            onError={function () {
+              setIsErrorLoadImage(true)
+            }}
           />
         ) : (
           <div className="flex justify-center items-center w-[160px] h-[240px]">

@@ -82,7 +82,6 @@ export const ProductList: React.FC<ProductListProps> = () => {
       <ModalViewProduct
         modalProps={modalViewProductItem}
         onCancel={function () {
-          console.log('ModalViewProduct onCancel')
           setModalViewProductItem(initialModalViewProduct)
         }}
         onOk={function (value, productDetail) {

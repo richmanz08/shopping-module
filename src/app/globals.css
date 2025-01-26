@@ -41,3 +41,17 @@ body {
 .ant-badge-count {
   background-color: #3386ff !important;
 }
+
+.ant-tour-header {
+  font-family: 'Roboto', 'sans-serif' !important;
+}
+.ant-tour-description {
+  font-family: 'Roboto', 'sans-serif' !important;
+}
+.ant-btn {
+  font-family: 'Roboto', 'sans-serif' !important;
+}
+
+.ant-btn-primary {
+  background-color: #3386ff !important;
+}

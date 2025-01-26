@@ -15,13 +15,14 @@ import { PlaytoriumIcon } from 'public/icons'
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+interface NavbarComponentProps {}
 const NavbarComponent: React.FC<NavbarComponentProps> = () => {
   const router = useRouter()
   const dispatch = useDispatch<AppDispatch>()
   const carts = useSelector((state: RootState) => state.carts.carts)
   const userInfo = useSelector((state: RootState) => state.user.user)
   const [affixCartDisplay, setAffixCartDisplay] = useState(false)
-  const [open, setOpen] = useState<boolean>(true)
+  const [open, setOpen] = useState<boolean>(false)
   const ref1 = useRef(null)
   const ref2 = useRef(null)
   const ref3 = useRef(null)
@@ -30,32 +31,37 @@ const NavbarComponent: React.FC<NavbarComponentProps> = () => {
 
   const steps: TourProps['steps'] = [
     {
-      title: 'You can use playtorium for discount',
-      // description: 'Put your files here.',
-      // cover: <div>Hello world</div>,
+      title: 'You can use playtorium point for discount',
+      style: { width: 400 },
+      description:
+        'Users spent points for a fixed amount of discount (1 point = 1 THB). The amount will be capped at 20% of total price',
       target: () => ref1.current,
-      nextButtonProps: {},
     },
     {
       title: 'You can check your products in cart',
-
-      // description: 'Put your files here.',
-      // cover: <div>Hello world</div>,
+      description:
+        'Total amount to be paid and discount here. You can remove the selected items from the cart.',
       target: () => ref2.current,
-      nextButtonProps: {},
     },
     {
-      title: 'Click to back Home page',
-      // description: 'Put your files here.',
-      // cover: <div>Hello world</div>,
+      title: 'Click to back home page',
+      description:
+        'The main page for selecting the products you want, along with displaying current discounts and promotions.',
       target: () => ref3.current,
-      nextButtonProps: {},
     },
   ]
 
   useEffect(() => {
     if (userData) dispatch(setUser(userData))
   }, [userData])
+
+  useEffect(() => {
+    const getToureLocalStore = localStorage.getItem('toure_display')
+    if (getToureLocalStore !== 'y') {
+      setOpen(true)
+      localStorage.setItem('toure_display', 'y')
+    }
+  }, [])
 
   return (
     <div className="w-full flex flex-col mb-6 ">
@@ -97,7 +103,7 @@ const NavbarComponent: React.FC<NavbarComponentProps> = () => {
         <div className="flex items-center flex-nowrap gap-4">
           <div ref={ref1} className="flex items-center gap-2">
             <div className="text-t5">{userInfo?.point ?? 0}</div>
-            <PlaytoriumIcon />
+            <PlaytoriumIcon className="size-6" />
           </div>
           <UserIcon className="size-7 text-secondary-default cursor-pointer" />
           <HeartIcon className="size-7 text-secondary-default cursor-pointer" />
